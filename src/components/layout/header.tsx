@@ -67,62 +67,7 @@ type NavLinkItem = (typeof navLinks)[number];
 
 
 
-/* ─────────────────────────────────────────────────────────────
-   CTA BUTTON — Pill body + attached circle pocket (exact MadeByShape shape)
-   Variant 'ghost' = subtle (scrolled), 'filled' = brand filled
-───────────────────────────────────────────────────────────── */
-function CtaButton({ className }: { className?: string }) {
-    return (
-        <Link
-            href="/contact"
-        >
-            <motion.div
-                whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(var(--primary), 0.3)" }}
-                whileTap={{ scale: 0.95 }}
-                className={cn(
-                    'group relative flex items-center h-[44px] rounded-full pl-6 pr-1.5',
-                    'bg-primary text-primary-foreground focus-visible:outline-none select-none',
-                    'transition-all duration-300 active:scale-[0.96]',
-                    className
-                )}
-            >
-                <span className="text-[14px] font-bold tracking-tight mr-4">
-                    Start a project
-                </span>
-
-                {/* Icon circle — slightly smaller than the pill for a "shell" look */}
-                <div
-                    className={cn(
-                        'flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-full',
-                        'bg-white/20 text-white',
-                        'transition-transform duration-300 group-hover:rotate-[15deg]',
-                    )}
-                >
-                    <ArrowUpRight className="h-4 w-4" strokeWidth={3} />
-                </div>
-            </motion.div>
-        </Link>
-    );
-}
-
-/* Mobile full-width CTA */
-function CtaButtonFull() {
-    return (
-        <Link
-            href="/contact"
-            className="group relative flex items-center w-full focus-visible:outline-none active:scale-[0.98] transition-all duration-300"
-        >
-            <div className="flex w-full h-[56px] items-center justify-between bg-primary text-white rounded-[1.25rem] px-6 overflow-hidden shadow-2xl shadow-primary/20">
-                <span className="text-[15px] font-bold tracking-tight">
-                    Start a project
-                </span>
-                <div className="flex h-[36px] w-[36px] items-center justify-center rounded-full bg-white/20 transition-transform duration-300 group-hover:rotate-[15deg] group-hover:scale-110">
-                    <ArrowUpRight className="h-5 w-5" strokeWidth={2.5} />
-                </div>
-            </div>
-        </Link>
-    );
-}
+import { GooeyCTA } from '@/components/shared/gooey-cta';
 
 /* ─────────────────────────────────────────────────────────────
    THEME TOGGLE
@@ -517,7 +462,9 @@ function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
 
                         {/* CTA */}
                         <div className="border-t border-border/30 px-6 py-5">
-                            <CtaButtonFull />
+                            <div className="flex w-full justify-center">
+                                <GooeyCTA />
+                            </div>
                             <p className="mt-2.5 text-center text-[11px] text-muted-foreground">
                                 or email us at{' '}
                                 <a href={`mailto:${siteConfig.email}`} className="text-primary hover:underline underline-offset-2">
@@ -614,7 +561,7 @@ export function Header() {
                     }}
                 >
                     <div className={cn(
-                        'flex h-full items-center transition-[padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
+                        'flex h-full items-center justify-between transition-[padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
                         isScrolled ? 'px-6 sm:px-7' : 'px-8 sm:px-12'
                     )}>
 
@@ -676,8 +623,8 @@ export function Header() {
                             <ThemeToggle />
 
                             {/* CTA — desktop */}
-                            <div className="hidden lg:block">
-                                <CtaButton />
+                            <div className="hidden lg:block lg:scale-[0.85] origin-right ml-2">
+                                <GooeyCTA />
                             </div>
 
                             {/* Hamburger — mobile — World Class Animated Toggle */}
