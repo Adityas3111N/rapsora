@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
     Twitter,
     Linkedin,
@@ -23,7 +24,11 @@ const socialLinks = [
 ];
 
 export function Footer() {
+    const pathname = usePathname();
+    const isDiagnostic = pathname?.startsWith('/diagnostic');
     const currentYear = new Date().getFullYear();
+
+    if (isDiagnostic) return null;
 
     return (
         <footer
@@ -36,25 +41,17 @@ export function Footer() {
                     {/* Brand Column */}
                     <div className="lg:col-span-4">
                         {/* Logo */}
-                        <Link href="/" className="group inline-flex items-center gap-2.5">
-                            <svg
-                                viewBox="0 0 40 40"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-8 w-8"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M8 28L20 16L32 28H24L20 24L16 28H8Z"
-                                    className="fill-primary"
-                                />
-                                <path
-                                    d="M12 20L20 12L28 20H22L20 18L18 20H12Z"
-                                    className="fill-primary opacity-70"
-                                />
-                            </svg>
+                        <Link href="/" className="group inline-flex items-center gap-2">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+                                <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 text-primary" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L4 7V17L12 22L20 17V7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M12 22V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M12 12L20 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M12 12L4 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                            </div>
                             <span className="font-heading text-xl font-bold tracking-tight text-foreground">
-                                Rap<span className="text-primary">Sora</span>
+                                RapSora
                             </span>
                         </Link>
 

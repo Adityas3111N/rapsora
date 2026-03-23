@@ -1,41 +1,25 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useTheme as useNextTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export function useTheme() {
-    const [theme, setThemeState] = useState<'light' | 'dark'>('dark');
+    const { theme, setTheme, forcedTheme } = useNextTheme();
     const [mounted, setMounted] = useState(false);
 
+    // useEffect only runs on the client, so now we can safely show the UI
     useEffect(() => {
         setMounted(true);
-        const stored = localStorage.getItem('rapsora-theme') as
-            | 'light'
-            | 'dark'
-            | null;
-
-        if (stored) {
-            setThemeState(stored);
-            document.documentElement.classList.toggle('dark', stored === 'dark');
-        } else {
-            // Default to dark (matches the logo aesthetic)
-            const prefersDark = window.matchMedia(
-                '(prefers-color-scheme: dark)'
-            ).matches;
-            const initial = prefersDark ? 'dark' : 'light';
-            setThemeState(initial);
-            document.documentElement.classList.toggle('dark', initial === 'dark');
-        }
     }, []);
 
-    const setTheme = useCallback((newTheme: 'light' | 'dark') => {
-        setThemeState(newTheme);
-        localStorage.setItem('rapsora-theme', newTheme);
-        document.documentElement.classList.toggle('dark', newTheme === 'dark');
-    }, []);
-
-    const toggleTheme = useCallback(() => {
+    const toggleTheme = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark');
-    }, [theme, setTheme]);
+    };
 
-    return { theme, setTheme, toggleTheme, mounted };
+    return {
+        theme: (forcedTheme || theme) as 'light' | 'dark' | undefined,
+        setTheme,
+        toggleTheme,
+        mounted,
+    };
 }

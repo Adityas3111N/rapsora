@@ -9,6 +9,7 @@ import {
     X, Menu, Globe, Palette, ShoppingBag, TrendingUp, Figma, Users, UserCircle, MessageSquare,
 } from 'lucide-react';
 
+import { Logo } from '@/components/layout/logo';
 import { cn } from '@/lib/utils';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { useTheme } from '@/hooks/useTheme';
@@ -30,7 +31,7 @@ const navLinks = [
     {
         label: 'Services',
         href: '/services',
-        count: 5,
+        count: 13,
         children: [
             { label: 'Web Design', description: 'Deliver your business to a wider audience', href: '/services/web-design', icon: 'Globe' },
             { label: 'Branding', description: "Creating brands you're proud of", href: '/services/branding', icon: 'Palette' },
@@ -64,23 +65,7 @@ const navLinks = [
 type NavChild = { label: string; description: string; href: string; icon?: string };
 type NavLinkItem = (typeof navLinks)[number];
 
-/* ─────────────────────────────────────────────────────────────
-   LOGO — Bold wordmark only, like "Shape."
-───────────────────────────────────────────────────────────── */
-function Logo() {
-    return (
-        <Link
-            href="/"
-            aria-label="RapSora — Home"
-            className="group shrink-0 focus-visible:outline-none"
-        >
-            <span className="font-heading text-[1.2rem] font-extrabold tracking-[-0.04em] text-foreground transition-opacity duration-200 group-hover:opacity-70">
-                RapSora
-                <span className="text-primary">.</span>
-            </span>
-        </Link>
-    );
-}
+
 
 /* ─────────────────────────────────────────────────────────────
    CTA BUTTON — Pill body + attached circle pocket (exact MadeByShape shape)
@@ -90,35 +75,32 @@ function CtaButton({ className }: { className?: string }) {
     return (
         <Link
             href="/contact"
-            className={cn(
-                'group relative flex items-center focus-visible:outline-none select-none',
-                'transition-all duration-200 active:scale-[0.97]',
-                'hover:brightness-110 hover:[filter:brightness(1.12)]',
-                className
-            )}
         >
-            {/* Pill body — fully rounded */}
-            <span
+            <motion.div
+                whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(var(--primary), 0.3)" }}
+                whileTap={{ scale: 0.95 }}
                 className={cn(
-                    'flex h-[38px] items-center rounded-full pl-5 pr-7',
-                    'bg-primary text-white',
-                    'text-[14px] font-semibold tracking-[-0.01em]',
+                    'group relative flex items-center h-[44px] rounded-full pl-6 pr-1.5',
+                    'bg-primary text-primary-foreground focus-visible:outline-none select-none',
+                    'transition-all duration-300 active:scale-[0.96]',
+                    className
                 )}
             >
-                Start a project
-            </span>
+                <span className="text-[14px] font-bold tracking-tight mr-4">
+                    Start a project
+                </span>
 
-            {/* Circle bubble — overlaps the pill's right edge */}
-            <span
-                className={cn(
-                    'flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-full',
-                    'bg-primary text-white',
-                )}
-                style={{ marginLeft: '-18px' }}
-                aria-hidden="true"
-            >
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:rotate-[15deg]" strokeWidth={2.5} />
-            </span>
+                {/* Icon circle — slightly smaller than the pill for a "shell" look */}
+                <div
+                    className={cn(
+                        'flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-full',
+                        'bg-white/20 text-white',
+                        'transition-transform duration-300 group-hover:rotate-[15deg]',
+                    )}
+                >
+                    <ArrowUpRight className="h-4 w-4" strokeWidth={3} />
+                </div>
+            </motion.div>
         </Link>
     );
 }
@@ -128,25 +110,16 @@ function CtaButtonFull() {
     return (
         <Link
             href="/contact"
-            className="group relative flex items-center w-full focus-visible:outline-none active:scale-[0.98] transition-all duration-200"
+            className="group relative flex items-center w-full focus-visible:outline-none active:scale-[0.98] transition-all duration-300"
         >
-            <span
-                className="flex flex-1 h-[52px] items-center justify-center bg-primary text-white text-[14px] font-semibold tracking-[-0.01em] transition-colors group-hover:bg-primary/90 shadow-lg shadow-primary/20"
-                style={{ borderRadius: '999px 0 0 999px' }}
-            >
-                Start a project
-            </span>
-            <span
-                className="flex h-[52px] w-[52px] shrink-0 items-center justify-center bg-primary text-white transition-all shadow-lg shadow-primary/20 group-hover:bg-primary/90"
-                style={{
-                    borderRadius: '50%',
-                    marginLeft: '-1px',
-                    transition: 'background 0.2s, transform 0.25s cubic-bezier(0.34,1.56,0.64,1)',
-                }}
-                aria-hidden="true"
-            >
-                <ArrowUpRight className="h-5 w-5 group-hover:rotate-[15deg] transition-transform duration-300" strokeWidth={2.5} />
-            </span>
+            <div className="flex w-full h-[56px] items-center justify-between bg-primary text-white rounded-[1.25rem] px-6 overflow-hidden shadow-2xl shadow-primary/20">
+                <span className="text-[15px] font-bold tracking-tight">
+                    Start a project
+                </span>
+                <div className="flex h-[36px] w-[36px] items-center justify-center rounded-full bg-white/20 transition-transform duration-300 group-hover:rotate-[15deg] group-hover:scale-110">
+                    <ArrowUpRight className="h-5 w-5" strokeWidth={2.5} />
+                </div>
+            </div>
         </Link>
     );
 }
@@ -219,34 +192,35 @@ function DropdownRow({ child, index }: { child: NavChild; index: number }) {
    DESKTOP DROPDOWN PANEL — wide two-column like MadeByShape
 ───────────────────────────────────────────────────────────── */
 function DesktopDropdown({
-    link, isOpen, onOpen, onClose,
+    link, isOpen, onOpen, onClose, onMouseEnter,
 }: {
     link: NavLinkItem & { children: NavChild[] };
     isOpen: boolean;
     onOpen: () => void;
     onClose: () => void;
+    onMouseEnter: (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void;
 }) {
     const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const pathname = usePathname();
     const isActive = pathname.startsWith(link.href);
 
     const enter = () => { if (timerRef.current) clearTimeout(timerRef.current); onOpen(); };
-    const leave = () => { timerRef.current = setTimeout(onClose, 140); };
+    const leave = () => { timerRef.current = setTimeout(onClose, 200); };
 
     useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current); }, []);
 
     const hasViewAll = 'viewAll' in link && link.viewAll;
 
     return (
-        <div className="relative" onMouseEnter={enter} onMouseLeave={leave}>
+        <div className="relative" onMouseEnter={(e) => { enter(); onMouseEnter(e as any); }} onMouseLeave={leave}>
             {/* ── Trigger ── */}
             <button
                 aria-expanded={isOpen}
                 aria-haspopup="true"
                 className={cn(
-                    'relative flex items-center gap-1 text-[15px] font-medium tracking-[-0.01em]',
+                    'relative flex items-center gap-1 text-[17px] font-bold tracking-tight',
                     'transition-colors duration-150 hover:text-foreground focus-visible:outline-none',
-                    isActive ? 'text-foreground' : 'text-foreground/60'
+                    isActive ? 'text-foreground' : 'text-foreground/70'
                 )}
             >
                 {link.label}
@@ -261,17 +235,20 @@ function DesktopDropdown({
                     </span>
                 )}
             </button>
-
-            {/* ── Panel ── */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.97 }}
+                        initial={{ opacity: 0, y: 15, scale: 0.96 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.97 }}
-                        transition={{ duration: 0.22, ease: EASE }}
-                        className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-5"
-                        style={{ width: hasViewAll ? 620 : 320 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                        transition={{
+                            duration: 0.35,
+                            ease: [0.16, 1, 0.3, 1] // Custom quintic ease-out
+                        }}
+                        className={cn(
+                            'absolute left-1/2 top-full z-[100] mt-4 w-[680px] -translate-x-1/2 overflow-hidden rounded-[2.5rem] border border-border/40 bg-white shadow-3xl dark:bg-[#1C1D1F]',
+                            'transform-gpu backdrop-blur-3xl' // Use GPU for smoother scaling
+                        )}
                     >
                         {/* Arrow tip */}
                         <div
@@ -340,17 +317,27 @@ function DesktopDropdown({
 /* ─────────────────────────────────────────────────────────────
    PLAIN DESKTOP NAV LINK
 ───────────────────────────────────────────────────────────── */
-function DesktopNavLink({ link }: { link: NavLinkItem }) {
-    const pathname = usePathname();
-    const isActive = pathname === link.href;
-
+function DesktopNavLink({
+    link,
+    isActive,
+    isScrolled,
+    onMouseEnter,
+}: {
+    link: NavLinkItem;
+    isActive: boolean;
+    isScrolled: boolean;
+    onMouseEnter: (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => void;
+}) {
     return (
         <Link
             href={link.href}
+            onMouseEnter={onMouseEnter}
             className={cn(
-                'relative text-[15px] font-medium tracking-[-0.01em]',
-                'transition-colors duration-150 hover:text-foreground focus-visible:outline-none',
-                isActive ? 'text-foreground' : 'text-foreground/60'
+                'relative text-[17px] font-bold tracking-tight px-4 py-2 rounded-full z-10',
+                'transition-all duration-300 focus-visible:outline-none',
+                isActive
+                    ? 'text-primary'
+                    : 'text-foreground/75 hover:text-foreground'
             )}
         >
             {link.label}
@@ -380,10 +367,15 @@ function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
     }, [isOpen]);
 
     const itemVariants: Variants = {
-        hidden: { opacity: 0, y: 10 },
+        hidden: { opacity: 0, y: 30 },
         visible: (i: number) => ({
             opacity: 1, y: 0,
-            transition: { duration: 0.28, delay: 0.06 + i * 0.045, ease: EASE },
+            transition: {
+                type: 'spring',
+                stiffness: 400,
+                damping: 40,
+                delay: 0.1 + i * 0.04
+            },
         }),
     };
 
@@ -400,26 +392,35 @@ function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                         aria-hidden="true"
                     />
 
-                    {/* Panel */}
+                    {/* Panel — World Class Bottom Sheet Expansion */}
                     <motion.div
-                        initial={reduceMotion ? { opacity: 0 } : { x: '100%' }}
-                        animate={reduceMotion ? { opacity: 1 } : { x: 0 }}
-                        exit={reduceMotion ? { opacity: 0 } : { x: '100%' }}
-                        transition={{ duration: 0.3, ease: EASE }}
-                        style={{ willChange: 'transform' }}
-                        className="fixed right-0 top-0 z-50 flex h-full w-full max-w-[min(400px,100vw)] flex-col bg-background"
+                        drag="y"
+                        dragConstraints={{ top: 0, bottom: 0 }}
+                        dragElastic={0.2}
+                        onDragEnd={(_, info) => {
+                            if (info.offset.y > 100) onClose();
+                        }}
+                        initial={{ y: '100%', opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: '100%', opacity: 0 }}
+                        transition={{
+                            type: 'spring',
+                            stiffness: 350,
+                            damping: 38,
+                            mass: 0.8
+                        }}
+                        style={{ willChange: 'transform, opacity' }}
+                        className="fixed inset-0 top-[10%] z-50 flex flex-col bg-white dark:bg-[#1C1D1F] rounded-t-[2.5rem] shadow-[0_-20px_60px_rgba(0,0,0,0.2)] dark:shadow-[0_-20px_60px_rgba(0,0,0,0.8)] outline-none"
                         role="dialog" aria-modal="true" aria-label="Site navigation"
                     >
-                        {/* Top bar */}
-                        <div className="flex items-center justify-between px-6 py-5">
+                        {/* Drag Handle */}
+                        <div className="flex justify-center p-4">
+                            <div className="w-10 h-1 bg-foreground/10 rounded-full" />
+                        </div>
+
+                        {/* Top bar (Logo only for mobile sheet) */}
+                        <div className="flex items-center justify-center px-6 py-2">
                             <Logo />
-                            <button
-                                onClick={onClose}
-                                className="flex h-9 w-9 items-center justify-center rounded-full bg-muted/80 text-foreground/60 transition-colors hover:bg-muted hover:text-foreground"
-                                aria-label="Close"
-                            >
-                                <X className="h-5 w-5" strokeWidth={1.75} />
-                            </button>
                         </div>
 
                         <div className="mx-6 h-px bg-border/40" />
@@ -536,11 +537,29 @@ function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
    [Logo]  [Nav links centered]  [Theme]  [CTA pill+circle]
 ═══════════════════════════════════════════════════════════════ */
 export function Header() {
+    const pathname = usePathname();
     const { isScrolled, isHidden } = useScrollPosition(40, 0.6);
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
     const [mobileOpen, setMobileOpen] = useState(false);
     const closeMobile = useCallback(() => setMobileOpen(false), []);
-    const navHidden = isHidden && !mobileOpen && openDropdown === null;
+    const isDiagnostic = pathname?.startsWith('/diagnostic');
+    const navHidden = (isHidden && !mobileOpen && openDropdown === null) || isDiagnostic;
+
+    if (isDiagnostic) return null;
+
+    const [hoveredRect, setHoveredRect] = useState<{ left: number; width: number } | null>(null);
+    const navRef = useRef<HTMLElement>(null);
+
+    const handleLinkHover = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        if (navRef.current) {
+            const navRect = navRef.current.getBoundingClientRect();
+            setHoveredRect({
+                left: rect.left - navRect.left,
+                width: rect.width,
+            });
+        }
+    };
 
     useEffect(() => {
         const onKey = (e: KeyboardEvent) => {
@@ -553,29 +572,35 @@ export function Header() {
     return (
         <>
             {/* Outer wrapper — handles centering + slide hide/show */}
-            <div
+            <motion.div
+                initial={false}
+                animate={navHidden ? { y: '-100%' } : { y: 0 }}
+                transition={{ duration: 0.5, ease: EASE }}
                 className={cn(
-                    'fixed inset-x-0 top-0 z-50 flex justify-center px-4 sm:px-6',
-                    'transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
-                    navHidden ? '-translate-y-full' : 'translate-y-0'
+                    'fixed inset-x-0 top-0 z-50 flex justify-center transition-[padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu',
+                    isScrolled ? 'px-4 sm:px-6' : 'px-0'
                 )}
             >
-                <header
+                <motion.header
+                    layout
+                    initial={false}
+                    transition={{
+                        type: 'spring',
+                        stiffness: 400,
+                        damping: 35,
+                        mass: 1
+                    }}
                     className={cn(
-                        // Smooth morph — 500ms expo-out on everything
-                        'w-full transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
+                        'w-full transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] transform-gpu will-change-transform',
                         isScrolled
                             ? [
-                                // ── Floating capsule ──
-                                'h-[80px]',
+                                'h-[64px]',
                                 'rounded-full',
-                                'bg-[#F5F5F5] dark:bg-[#25262A] backdrop-blur-xl',
-                                'border border-border/70',
-                                'shadow-[0_8px_32px_-4px_rgba(0,0,0,0.18),0_2px_6px_-1px_rgba(0,0,0,0.08)]',
-                                'dark:shadow-[0_8px_40px_-4px_rgba(0,0,0,0.6),0_2px_8px_-1px_rgba(0,0,0,0.35)]',
+                                'bg-white/98 dark:bg-[#1C1D1F]/95',
+                                'border border-white/40',
+                                'shadow-[0_20px_50px_rgba(0,0,0,0.1)]',
                             ]
                             : [
-                                // ── Full-width transparent ──
                                 'h-[80px]',
                                 'rounded-none',
                                 'bg-transparent',
@@ -583,15 +608,14 @@ export function Header() {
                                 'shadow-none',
                             ]
                     )}
-                    // Inline styles for maxWidth + marginTop so CSS can interpolate concrete px→px
                     style={{
-                        maxWidth: isScrolled ? 880 : 9999,
-                        marginTop: isScrolled ? 8 : 0,
+                        maxWidth: isScrolled ? 1200 : '100%',
+                        marginTop: isScrolled ? 16 : 0,
                     }}
                 >
                     <div className={cn(
                         'flex h-full items-center transition-[padding] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
-                        isScrolled ? 'px-6 sm:px-8' : 'px-8 sm:px-12'
+                        isScrolled ? 'px-6 sm:px-7' : 'px-8 sm:px-12'
                     )}>
 
                         {/* ── LEFT: Logo ────────────────────────────── */}
@@ -599,9 +623,31 @@ export function Header() {
 
                         {/* ── CENTRE: Nav links ────────────────────── */}
                         <nav
-                            className="hidden flex-1 items-center justify-center gap-10 lg:flex"
+                            ref={navRef}
+                            onMouseLeave={() => setHoveredRect(null)}
+                            className="relative hidden flex-1 items-center justify-center gap-8 lg:flex"
                             aria-label="Primary navigation"
                         >
+                            <AnimatePresence>
+                                {hoveredRect && (
+                                    <motion.div
+                                        layoutId="nav-pill"
+                                        initial={{ opacity: 0 }}
+                                        animate={{
+                                            opacity: 1,
+                                            left: hoveredRect.left - 12,
+                                            width: hoveredRect.width + 24
+                                        }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{
+                                            type: 'spring',
+                                            stiffness: 450,
+                                            damping: 35
+                                        }}
+                                        className="absolute top-1/2 -translate-y-1/2 h-10 bg-primary/5 rounded-full z-0"
+                                    />
+                                )}
+                            </AnimatePresence>
                             {navLinks.map((link) => {
                                 const hasKids = 'children' in link && Array.isArray((link as { children?: unknown }).children);
                                 return hasKids ? (
@@ -611,15 +657,22 @@ export function Header() {
                                         isOpen={openDropdown === link.label}
                                         onOpen={() => setOpenDropdown(link.label)}
                                         onClose={() => setOpenDropdown(null)}
+                                        onMouseEnter={handleLinkHover}
                                     />
                                 ) : (
-                                    <DesktopNavLink key={link.href} link={link} />
+                                    <DesktopNavLink
+                                        key={link.href}
+                                        link={link}
+                                        isActive={pathname === link.href}
+                                        isScrolled={isScrolled}
+                                        onMouseEnter={handleLinkHover}
+                                    />
                                 );
                             })}
                         </nav>
 
                         {/* ── RIGHT: Controls ──────────────────────── */}
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-4">
                             <ThemeToggle />
 
                             {/* CTA — desktop */}
@@ -627,20 +680,85 @@ export function Header() {
                                 <CtaButton />
                             </div>
 
-                            {/* Hamburger — mobile */}
+                            {/* Hamburger — mobile — World Class Animated Toggle */}
                             <button
-                                className="flex h-9 w-9 items-center justify-center rounded-full text-foreground/60 transition-colors hover:bg-foreground/[0.06] hover:text-foreground lg:hidden"
-                                onClick={() => setMobileOpen(true)}
-                                aria-label="Open menu"
-                                aria-expanded={mobileOpen}
+                                className="relative z-[60] flex h-10 w-10 items-center justify-center rounded-full text-foreground/60 transition-colors hover:bg-foreground/[0.06] hover:text-foreground lg:hidden"
+                                onClick={() => setMobileOpen(!mobileOpen)}
+                                aria-label="Toggle menu"
                             >
-                                <Menu className="h-5 w-5" strokeWidth={1.75} />
+                                <div className="flex flex-col gap-1.5 items-center">
+                                    <motion.span 
+                                        animate={{ 
+                                            rotate: mobileOpen ? 45 : 0, 
+                                            y: mobileOpen ? 7 : 0,
+                                            width: mobileOpen ? 20 : 20
+                                        }}
+                                        className="w-5 h-[2px] bg-current rounded-full origin-center" 
+                                    />
+                                    <motion.span 
+                                        animate={{ 
+                                            opacity: mobileOpen ? 0 : 1,
+                                            x: mobileOpen ? 10 : 0
+                                        }}
+                                        className="w-5 h-[2px] bg-current rounded-full" 
+                                    />
+                                    <motion.span 
+                                        animate={{ 
+                                            rotate: mobileOpen ? -45 : 0, 
+                                            y: mobileOpen ? -7 : 0,
+                                            width: mobileOpen ? 20 : 20
+                                        }}
+                                        className="w-5 h-[2px] bg-current rounded-full origin-center" 
+                                    />
+                                </div>
                             </button>
                         </div>
-
                     </div>
-                </header>
-            </div>
+                </motion.header>
+            </motion.div>
+
+            {/* ── Sticky Conversion Hook — mobile ── */}
+            <AnimatePresence>
+                {!mobileOpen && (
+                    <motion.div
+                        initial={{ y: 80, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: 80, opacity: 0 }}
+                        transition={{ 
+                            type: 'spring', 
+                            stiffness: 400, 
+                            damping: 38,
+                            delay: 0.8 
+                        }}
+                        className="fixed bottom-6 lg:bottom-8 left-1/2 lg:left-auto lg:right-8 -translate-x-1/2 lg:translate-x-0 z-[60] w-auto max-w-[92%] pointer-events-auto"
+                    >
+                        <Link
+                            href="/diagnostic"
+                            className="group relative flex items-center gap-4 px-6 py-3 bg-primary rounded-[1.25rem] shadow-[0_15px_40px_rgba(var(--primary-rgb),0.35)] active:scale-95 transition-all duration-300 overflow-hidden border border-white/20"
+                        >
+                            {/* Cinematic Shimmer Effect */}
+                            <motion.div 
+                                animate={{ x: ['-100%', '200%'] }}
+                                transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1 }}
+                                className="absolute inset-x-0 inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]" 
+                            />
+                            
+                            <div className="relative flex flex-col items-start mr-1">
+                                <span className="text-[10px] font-extrabold uppercase tracking-widest text-white/50 leading-none mb-1">
+                                    THE GROWTH BLUEPRINT
+                                </span>
+                                <p className="text-[14px] font-bold text-white tracking-tight leading-none whitespace-nowrap">
+                                    Unlock My <span className="text-white underline decoration-white/40 underline-offset-4 font-black italic">5X Revenue</span> Plan.
+                                </p>
+                            </div>
+                            
+                            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white backdrop-blur-md border border-white/10 transition-all duration-500 group-hover:bg-white group-hover:text-primary group-hover:rotate-12 group-hover:scale-110">
+                                <ArrowUpRight className="h-5 w-5" strokeWidth={2.5} />
+                            </div>
+                        </Link>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             <MobileMenu isOpen={mobileOpen} onClose={closeMobile} />
         </>

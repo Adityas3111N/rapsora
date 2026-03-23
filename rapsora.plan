@@ -1,0 +1,862 @@
+================================================================================
+  RAPSORA — DEVELOPMENT MASTER PLAN
+  A World-Class Web Development Agency Website
+  Created: 2026-02-19
+================================================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  1. BRAND IDENTITY & POSITIONING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Brand Name:       RapSora
+  Industry:         Web Design & Development Agency
+  Brand Color:      Purple (#7C3AED) — signals creativity, premium, innovation
+  Brand Personality: Bold → Confident → Premium → Slightly Playful → Human
+
+  Positioning Statement:
+  "RapSora is a premium web development agency that builds digital experiences
+   which don't just look beautiful — they convert visitors into customers."
+
+  Tone of Voice:
+  - Confident, not arrogant
+  - Direct, not aggressive
+  - Clever, not trying-too-hard
+  - Human, not corporate
+  - Examples:
+    ✓ "We build websites that make your competitors nervous."
+    ✗ "We leverage synergistic digital paradigms for enhanced stakeholder value."
+
+  Target Audience:
+  - Startup founders who need a strong digital presence
+  - Growing businesses ready to invest in premium web experiences
+  - Brands that understand design = revenue
+  - Decision-makers who've been burned by cheap agencies
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  2. DESIGN PSYCHOLOGY — CONVERSION FRAMEWORK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  The homepage follows a deliberate psychological journey:
+
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │  VISITOR'S MENTAL STATE          →  OUR RESPONSE                   │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │  "Who are these people?"         →  HERO: Bold identity statement  │
+  │  "Are they any good?"            →  WORK: Proof through projects   │
+  │  "What can they do for me?"      →  SERVICES: Clear value props    │
+  │  "Can I trust them?"             →  SOCIAL PROOF: Testimonials     │
+  │  "How do they actually work?"    →  PROCESS: Remove uncertainty    │
+  │  "Are they legit?"               →  ABOUT: Human connection        │
+  │  "What should I do next?"        →  CTA: Clear next step           │
+  └─────────────────────────────────────────────────────────────────────┘
+
+  Key Psychological Principles Applied:
+
+  1. PRIMACY EFFECT (First Impression)
+     - The hero section has exactly 3 seconds to communicate:
+       WHO you are, WHAT you do, WHY they should care
+     - Bold typography + purposeful animation = instant credibility
+
+  2. COGNITIVE FLUENCY (Easy = Trustworthy)
+     - Clean layout with generous whitespace
+     - Clear visual hierarchy — visitors never have to "figure out" where to look
+     - Consistent spacing rhythm (8px grid system)
+
+  3. SOCIAL PROOF (Others Trust Us → You Should Too)
+     - Client logos (recognition/trust transfer)
+     - Testimonials with real names, faces, and roles
+     - Project showcases with measurable results
+     - "Award badges" if applicable
+
+  4. LOSS AVERSION (Fear of Missing Out)
+     - "Your competitors are investing in great design. Are you?"
+     - Subtle urgency without being sleazy
+
+  5. THE SERIAL POSITION EFFECT
+     - Strongest content at the TOP (hero, featured work)
+     - Strongest CTA at the BOTTOM (memory recency)
+     - Weaker but necessary content in the middle
+
+  6. HICK'S LAW (Fewer Choices = Faster Decisions)
+     - One primary CTA per section
+     - Navigation limited to 5-6 items max
+     - No decision paralysis
+
+  7. VISUAL MOMENTUM
+     - Each section ends with a reason to scroll further
+     - Scroll-triggered animations create "reward loops"
+     - The page feels alive, not static
+
+  8. THE AESTHETIC-USABILITY EFFECT
+     - Beautiful things are perceived as more functional
+     - Premium design = "these people clearly know what they're doing"
+     - This IS our product showcase — the website itself
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  3. HOMEPAGE — SECTION-BY-SECTION BLUEPRINT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  The homepage is structured as a vertical narrative.
+  Each section answers one question and creates curiosity for the next.
+
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │                                                                     │
+  │   NAVIGATION BAR (Sticky)                                           │
+  │                                                                     │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │   SECTION 1 — HERO                                                  │
+  │   "The Hook"                                                        │
+  │                                                                     │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │   SECTION 2 — MARQUEE / LOGO TICKER                                │
+  │   "The Trust Signal"                                                │
+  │                                                                     │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │   SECTION 3 — FEATURED WORK                                         │
+  │   "The Proof"                                                       │
+  │                                                                     │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │   SECTION 4 — SERVICES OVERVIEW                                     │
+  │   "The Solution"                                                    │
+  │                                                                     │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │   SECTION 5 — WHY RAPSORA                                           │
+  │   "The Differentiator"                                              │
+  │                                                                     │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │   SECTION 6 — TESTIMONIALS                                          │
+  │   "The Validation"                                                  │
+  │                                                                     │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │   SECTION 7 — PROCESS                                               │
+  │   "The Clarity"                                                     │
+  │                                                                     │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │   SECTION 8 — BLOG / INSIGHTS PREVIEW                               │
+  │   "The Authority"                                                   │
+  │                                                                     │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │   SECTION 9 — CTA BANNER                                            │
+  │   "The Close"                                                       │
+  │                                                                     │
+  ├─────────────────────────────────────────────────────────────────────┤
+  │                                                                     │
+  │   FOOTER                                                            │
+  │   "The Safety Net"                                                  │
+  │                                                                     │
+  └─────────────────────────────────────────────────────────────────────┘
+
+
+──────────────────────────────────────────────
+  SECTION 0: NAVIGATION BAR
+  Role: Wayfinding + Primary CTA access
+──────────────────────────────────────────────
+
+  Layout:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │ [Logo]     Services   Work   About   Blog   Contact    [CTA]   │
+  └──────────────────────────────────────────────────────────────────┘
+
+  Behavior:
+  - Transparent on hero, becomes solid on scroll (glass-morphism blur)
+  - Shrinks slightly on scroll (height: 80px → 64px)
+  - "Services" has a mega-dropdown with icons + descriptions
+  - "About" links to about/team/culture
+  - CTA button: "Start a Project" — always visible, brand purple
+  - Dark mode toggle (sun/moon icon)
+  - Mobile: hamburger → full-screen overlay menu with staggered animations
+
+  Psychology:
+  - CTA visible at ALL times = zero-friction conversion path
+  - Limited nav items (Hick's Law) = fast decision-making
+  - Mega-menu shows depth of services without overwhelming
+
+  File: src/components/layout/header.tsx
+  Dependencies: src/constants/navigation.ts, src/hooks/useScrollPosition.ts
+
+
+──────────────────────────────────────────────
+  SECTION 1: HERO
+  Role: Instant identity + emotional hook
+  Time Budget: 3 seconds to hook
+──────────────────────────────────────────────
+
+  Layout:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │                                                                  │
+  │                                                                  │
+  │         We Design & Build                                        │
+  │         Websites That                                            │
+  │         Actually Convert.                      [Abstract         │
+  │                                                 3D/Gradient      │
+  │         RapSora is a web development            Visual or        │
+  │         agency crafting digital                  Animated         │
+  │         experiences that drive                  Element]         │
+  │         real business growth.                                    │
+  │                                                                  │
+  │         [ View Our Work ]   [ Start a Project → ]               │
+  │                                                                  │
+  │                        ↓ Scroll                                  │
+  │                                                                  │
+  └──────────────────────────────────────────────────────────────────┘
+
+  Content Strategy:
+  - Headline: Big, bold, benefit-driven (NOT "Welcome to RapSora")
+    Options:
+    a) "We Design & Build Websites That Actually Convert."
+    b) "Digital Experiences That Move Your Business Forward."
+    c) "We Build Websites Your Competitors Wish They Had."
+
+  - Subheadline: One sentence, plain English, what-you-get
+    "A web development agency crafting premium digital experiences
+     that turn visitors into paying customers."
+
+  - Two CTAs (split intent):
+    PRIMARY:   "Start a Project →"  (high-intent leads)
+    SECONDARY: "View Our Work"       (still exploring)
+
+  Typography:
+  - Headline: font-satoshi, 56-80px, font-bold, leading-tight
+  - Subheadline: font-inter, 18-20px, text-muted-foreground, max-w-lg
+  - Responsive: scales down proportionally on mobile
+
+  Visual Element (RIGHT SIDE):
+  - Option A: Abstract purple gradient blob with subtle animation
+  - Option B: Masked video loop showing website builds
+  - Option C: 3D floating geometric shapes (purple-themed)
+  - The visual should NOT compete with the headline
+  - It should create atmosphere, not distract
+
+  Animation Choreography:
+  1. Headline words reveal one-by-one (staggered, 80ms delay each)
+  2. Subheadline fades in 400ms after headline completes
+  3. CTAs slide up from bottom with spring physics
+  4. Visual element has a slow, ambient floating animation (infinite)
+  5. Scroll indicator pulses gently at the bottom
+
+  Psychology:
+  - "Actually Convert" — directly addresses the pain point
+  - Two CTAs = captures both hot leads AND researchers
+  - Big typography = confidence, authority
+  - Animation = "these people know motion design"
+
+  File: src/components/sections/hero.tsx
+  Estimated time: 3-4 hours (get this perfect)
+
+
+──────────────────────────────────────────────
+  SECTION 2: LOGO MARQUEE / SOCIAL PROOF BAR
+  Role: Instant trust through association
+──────────────────────────────────────────────
+
+  Layout:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  Trusted by teams who take their brand seriously                 │
+  │  ─────────────────────────────────────────────────────────────── │
+  │  [Logo] [Logo] [Logo] [Logo] [Logo] [Logo] →→→ (infinite loop)  │
+  └──────────────────────────────────────────────────────────────────┘
+
+  Behavior:
+  - Infinite horizontal scroll (CSS-only, no JS for perf)
+  - Logos in monochrome (grayscale), subtle hover → brand color
+  - Small section, high density of logos
+  - A thin separator line between headline and logos
+
+  Content:
+  - 8-12 client/partner logos
+  - If no real logos yet, use industry-relevant text:
+    "startups · saas · ecommerce · fintech · healthcare"
+
+  Psychology:
+  - Appears immediately after hero = "others trust them"
+  - Monochrome logos = clean, non-competing with brand
+  - Infinite scroll = suggests many clients (abundance)
+
+  File: src/components/sections/logo-marquee.tsx
+  Estimated time: 1 hour
+
+
+──────────────────────────────────────────────
+  SECTION 3: FEATURED WORK
+  Role: Prove we can deliver (show, don't tell)
+──────────────────────────────────────────────
+
+  Layout:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │                                                                  │
+  │  Selected Work                                                   │
+  │  Projects that speak for themselves.                             │
+  │                                                                  │
+  │  ┌─────────────────────────────────────────────────────────┐    │
+  │  │                                                         │    │
+  │  │     [LARGE PROJECT IMAGE — FULL WIDTH]                  │    │
+  │  │                                                         │    │
+  │  │     Year  ·  Branding  ·  Website  ·  SEO               │    │
+  │  │     Client Name                                         │    │
+  │  │     Tagline: One-line project description               │    │
+  │  │                                                         │    │
+  │  └─────────────────────────────────────────────────────────┘    │
+  │                                                                  │
+  │  ┌──────────────────────┐   ┌──────────────────────┐            │
+  │  │                      │   │                      │            │
+  │  │  [PROJECT IMAGE]     │   │  [PROJECT IMAGE]     │            │
+  │  │                      │   │                      │            │
+  │  │  Client Name         │   │  Client Name         │            │
+  │  │  Project tagline     │   │  Project tagline     │            │
+  │  │                      │   │                      │            │
+  │  └──────────────────────┘   └──────────────────────┘            │
+  │                                                                  │
+  │                    [ View All Work → ]                           │
+  │                                                                  │
+  └──────────────────────────────────────────────────────────────────┘
+
+  Card Behavior:
+  - Hover: image scales up 5% smoothly, overlay appears
+  - Overlay shows: project tags, "View Project →"
+  - Cards have subtle rounded corners (radius-xl)
+  - Images are high-quality, full-bleed within card
+
+  Content Strategy:
+  - Show 3 projects max on homepage (quality > quantity)
+  - First project = full-width hero card (most impressive)
+  - Next two = side-by-side grid
+  - Each has: image, client name, service tags, year, one-line description
+
+  Animation:
+  - Section heading fades in on scroll
+  - Cards stagger in one-by-one (200ms delay each)
+  - Parallax: images move slightly slower than cards during scroll
+
+  Psychology:
+  - Large imagery = premium perception
+  - Service tags = "they do exactly what I need"
+  - Limited selection = curated, not desperate
+  - "View All Work →" = there's more (abundance signal)
+
+  File: src/components/sections/featured-work.tsx
+  Dependencies: src/content/projects.ts, src/components/shared/project-card.tsx
+  Estimated time: 3-4 hours
+
+
+──────────────────────────────────────────────
+  SECTION 4: SERVICES OVERVIEW
+  Role: Answer "what can they do for me?"
+──────────────────────────────────────────────
+
+  Layout:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │                                                                  │
+  │  What We Do                                                      │
+  │  Everything you need to dominate online.                         │
+  │                                                                  │
+  │  ┌────────────────────────────────────────────────────────┐     │
+  │  │  01                                                    │     │
+  │  │  Web Design & Development                              │     │
+  │  │  Beautiful, responsive websites built with              │     │
+  │  │  performance and conversion in mind.              →     │     │
+  │  ├────────────────────────────────────────────────────────┤     │
+  │  │  02                                                    │     │
+  │  │  Branding & Identity                                   │     │
+  │  │  Memorable brands that connect with your               │     │
+  │  │  audience and stand the test of time.             →     │     │
+  │  ├────────────────────────────────────────────────────────┤     │
+  │  │  03                                                    │     │
+  │  │  E-Commerce Solutions                                  │     │
+  │  │  Shopify & custom stores that turn browsers            │     │
+  │  │  into buyers.                                     →     │     │
+  │  ├────────────────────────────────────────────────────────┤     │
+  │  │  04                                                    │     │
+  │  │  SEO & Digital Marketing                               │     │
+  │  │  Get found, get clicks, get customers.            →     │     │
+  │  ├────────────────────────────────────────────────────────┤     │
+  │  │  05                                                    │     │
+  │  │  UI/UX Design                                          │     │
+  │  │  User experiences that feel intuitive and              │     │
+  │  │  drive engagement.                                →     │     │
+  │  └────────────────────────────────────────────────────────┘     │
+  │                                                                  │
+  └──────────────────────────────────────────────────────────────────┘
+
+  Card Behavior:
+  - Accordion/expandable list style (NOT a grid of cards)
+  - Each row: number, title, short description, arrow icon
+  - Hover: row highlights with subtle purple tint, arrow slides right
+  - Click/tap: expands to show more detail or navigates to service page
+  - Active state: purple left border accent
+
+  Animation:
+  - Each service row slides in from the left, staggered
+  - Numbers count up briefly when section enters viewport
+
+  Psychology:
+  - Numbered list = organized, methodical, professional
+  - Accordion style (like MadeByShape) = modern, clean
+  - Short descriptions = easy to scan
+  - Arrow → = "learn more" without cluttering with buttons
+  - Conversational descriptions, not jargon
+
+  File: src/components/sections/services-overview.tsx
+  Dependencies: src/content/services.ts
+  Estimated time: 2-3 hours
+
+
+──────────────────────────────────────────────
+  SECTION 5: WHY RAPSORA (DIFFERENTIATOR)
+  Role: Separate from the pack
+──────────────────────────────────────────────
+
+  Layout:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │                                                                  │
+  │  Why brands choose RapSora                                       │
+  │                                                                  │
+  │  ┌───────────┐  ┌───────────┐  ┌───────────┐  ┌───────────┐   │
+  │  │   Icon     │  │   Icon     │  │   Icon     │  │   Icon     │  │
+  │  │            │  │            │  │            │  │            │  │
+  │  │ Conversion │  │ No         │  │ Pixel-     │  │ Ongoing    │  │
+  │  │ Focused    │  │ Templates  │  │ Perfect    │  │ Support    │  │
+  │  │            │  │            │  │            │  │            │  │
+  │  │ We don't   │  │ Every      │  │ Obsessive  │  │ We don't   │  │
+  │  │ just make  │  │ project is │  │ attention  │  │ disappear  │  │
+  │  │ pretty     │  │ built from │  │ to craft   │  │ after      │  │
+  │  │ sites. We  │  │ scratch.   │  │ and detail │  │ launch.    │  │
+  │  │ make sites │  │            │  │            │  │            │  │
+  │  │ that work. │  │            │  │            │  │            │  │
+  │  └───────────┘  └───────────┘  └───────────┘  └───────────┘   │
+  │                                                                  │
+  │  ┌──────────────────────────────────────────────────────────┐   │
+  │  │  "50+ projects delivered  ·  98% client retention        │   │
+  │  │   4.9★ average rating    ·  < 24hr response time"        │   │
+  │  └──────────────────────────────────────────────────────────┘   │
+  │                                                                  │
+  └──────────────────────────────────────────────────────────────────┘
+
+  Behavior:
+  - 4-column grid (2x2 on tablet, stacked on mobile)
+  - Each card has: icon (lucide), bold title, 2-line description
+  - Below: stats bar with key numbers (animated count-up on scroll)
+
+  Animation:
+  - Cards stagger in with scale + fade
+  - Stats numbers count up when section enters viewport
+
+  Psychology:
+  - Directly addresses objections ("not just templates")
+  - Stats with specific numbers = credible (not "many projects")
+  - "98% retention" = others don't leave, why would you?
+
+  File: src/components/sections/why-rapsora.tsx
+  Estimated time: 2 hours
+
+
+──────────────────────────────────────────────
+  SECTION 6: TESTIMONIALS
+  Role: Let others sell for you
+──────────────────────────────────────────────
+
+  Layout:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │                                                                  │
+  │  What our clients say                                            │
+  │                                                                  │
+  │  ┌──────────────────────────────────────────────────────────┐   │
+  │  │                                                          │   │
+  │  │  ★★★★★                                                   │   │
+  │  │                                                          │   │
+  │  │  "RapSora transformed our online presence completely.    │   │
+  │  │   Our conversions increased by 340% within 3 months      │   │
+  │  │   of launching the new site."                            │   │
+  │  │                                                          │   │
+  │  │  [Avatar]  Sarah Johnson                                 │   │
+  │  │            CEO, TechFlow                                 │   │
+  │  │                                                          │   │
+  │  │                          ← ○ ○ ○ ○ →                    │   │
+  │  └──────────────────────────────────────────────────────────┘   │
+  │                                                                  │
+  └──────────────────────────────────────────────────────────────────┘
+
+  Behavior:
+  - Carousel with 4-5 testimonials
+  - Auto-advances every 6 seconds (pauses on hover)
+  - Swipeable on mobile
+  - Dot indicators + prev/next arrows
+  - Large quote text (24-28px) for impact
+
+  Content Strategy:
+  - Each testimonial should include a RESULT (not just "they're great")
+  - Real names, real roles, real companies
+  - Photo/avatar adds human connection
+
+  Psychology:
+  - Specific numbers in testimonials ("340% increase") = believable
+  - Star ratings = familiar trust pattern
+  - Real photos > initials > no photo
+  - Reading others' positive experiences = vicarious satisfaction
+
+  File: src/components/sections/testimonials.tsx
+  Dependencies: src/content/testimonials.ts
+  Estimated time: 2-3 hours
+
+
+──────────────────────────────────────────────
+  SECTION 7: PROCESS
+  Role: Remove uncertainty, build confidence
+──────────────────────────────────────────────
+
+  Layout:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │                                                                  │
+  │  How we bring your vision to life                                │
+  │                                                                  │
+  │  01 ─── Discovery           We learn your business, goals,       │
+  │  ●                          audience, and competitors.           │
+  │  │                                                               │
+  │  02 ─── Strategy            We define the roadmap, sitemap,      │
+  │  ●                          and conversion strategy.             │
+  │  │                                                               │
+  │  03 ─── Design              We craft pixel-perfect designs       │
+  │  ●                          you'll fall in love with.            │
+  │  │                                                               │
+  │  04 ─── Development         We build with clean code,            │
+  │  ●                          performance, and SEO in mind.        │
+  │  │                                                               │
+  │  05 ─── Launch & Grow       We launch, monitor, optimize,        │
+  │  ●                          and support you ongoing.             │
+  │                                                                  │
+  └──────────────────────────────────────────────────────────────────┘
+
+  Behavior:
+  - Vertical timeline with connecting line
+  - Each step has: number, title, description
+  - As you scroll, the connecting line "fills" with purple
+  - Active step highlights while others dim
+
+  Animation:
+  - Timeline line draws itself as user scrolls
+  - Each step fades in when it reaches the center of viewport
+  - Purple dot pulses briefly when activated
+
+  Psychology:
+  - Process transparency = "I know what to expect"
+  - Numbered steps = finite, manageable, not overwhelming
+  - "Launch & Grow" (not just "Launch") = ongoing relationship
+
+  File: src/components/sections/process.tsx
+  Estimated time: 2-3 hours
+
+
+──────────────────────────────────────────────
+  SECTION 8: BLOG / INSIGHTS PREVIEW
+  Role: Establish thought leadership
+──────────────────────────────────────────────
+
+  Layout:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │                                                                  │
+  │  From Our Studio                           [ View All Posts → ]  │
+  │                                                                  │
+  │  ┌────────────────┐  ┌────────────────┐  ┌────────────────┐    │
+  │  │  [Image]       │  │  [Image]       │  │  [Image]       │    │
+  │  │                │  │                │  │                │    │
+  │  │  Category      │  │  Category      │  │  Category      │    │
+  │  │  Post Title    │  │  Post Title    │  │  Post Title    │    │
+  │  │  3 min read    │  │  5 min read    │  │  4 min read    │    │
+  │  └────────────────┘  └────────────────┘  └────────────────┘    │
+  │                                                                  │
+  └──────────────────────────────────────────────────────────────────┘
+
+  Behavior:
+  - 3 latest posts in a horizontal row
+  - Hover: image lifts with shadow, title underlines
+  - Mobile: horizontal scroll or stacked
+  - Each card links to the full blog post
+
+  Psychology:
+  - "We share knowledge" = generous, authoritative
+  - "3 min read" = commitment clarity
+  - Categories = organized expertise
+
+  File: src/components/sections/blog-preview.tsx
+  Estimated time: 1.5 hours
+
+
+──────────────────────────────────────────────
+  SECTION 9: CTA BANNER
+  Role: The final conversion push
+──────────────────────────────────────────────
+
+  Layout:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  ┌──────────────────────────────────────────────────────────┐   │
+  │  │                                                          │   │
+  │  │          Have a project in mind?                         │   │
+  │  │          Let's make it happen.                           │   │
+  │  │                                                          │   │
+  │  │          [ Start Your Project → ]                        │   │
+  │  │                                                          │   │
+  │  │          or email us: hello@rapsora.com                  │   │
+  │  │                                                          │   │
+  │  └──────────────────────────────────────────────────────────┘   │
+  └──────────────────────────────────────────────────────────────────┘
+
+  Behavior:
+  - Full-width section with gradient or brand-colored background
+  - Purple gradient → dark (light mode) or purple gradient → lighter (dark mode)
+  - Single, prominent CTA button
+  - Email below as low-friction alternative
+  - Subtle animated background (gradient shift or particles)
+
+  Psychology:
+  - Appears AFTER all trust has been built
+  - Simple ask = no form friction yet, just "start a conversation"
+  - Email fallback = for people who hate forms
+  - Warm, inviting tone ("Let's make it happen")
+
+  File: src/components/sections/cta-banner.tsx
+  Estimated time: 1 hour
+
+
+──────────────────────────────────────────────
+  SECTION 10: FOOTER
+  Role: Safety net + SEO + contact info
+──────────────────────────────────────────────
+
+  Layout:
+  ┌──────────────────────────────────────────────────────────────────┐
+  │                                                                  │
+  │  [Logo]                                                          │
+  │  A web development agency                                        │
+  │  building digital experiences                                    │
+  │  that convert.                                                   │
+  │                                                                  │
+  │  Navigation      Services         Connect                        │
+  │  ──────────      ──────────       ──────────                     │
+  │  Home            Web Design       Twitter/X                      │
+  │  Work            Branding         LinkedIn                       │
+  │  About           E-Commerce       Instagram                      │
+  │  Blog            SEO              Dribbble                       │
+  │  Contact         UI/UX            GitHub                         │
+  │                                                                  │
+  │  ──────────────────────────────────────────────────────────────  │
+  │  © 2026 RapSora. All rights reserved.     Privacy · Terms       │
+  │                                                                  │
+  │  [← Back to top]                                                 │
+  │                                                                  │
+  └──────────────────────────────────────────────────────────────────┘
+
+  File: src/components/layout/footer.tsx
+  Estimated time: 1.5 hours
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  4. TECHNICAL IMPLEMENTATION PLAN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Tech Stack:
+  ├── Framework:      Next.js 16 (App Router, RSC)
+  ├── Language:       TypeScript (strict mode)
+  ├── Styling:        Tailwind CSS v4 + custom CSS variables
+  ├── Components:     shadcn/ui (Radix primitives)
+  ├── Animations:     Framer Motion
+  ├── Icons:          Lucide React
+  ├── Fonts:          Satoshi (headings) + Inter (body)
+  ├── Code Quality:   ESLint + Prettier
+  └── Deployment:     Vercel (recommended)
+
+  Performance Targets:
+  ├── Lighthouse Score:    95+ across all categories
+  ├── First Contentful Paint:  < 1.5s
+  ├── Largest Contentful Paint: < 2.5s
+  ├── Cumulative Layout Shift:  < 0.1
+  └── Total Bundle Size:  < 200KB (gzipped, first load)
+
+  SEO Strategy:
+  ├── generateMetadata() on every page
+  ├── Structured data (JSON-LD) for Organization + WebSite
+  ├── Open Graph + Twitter card meta for all pages
+  ├── Sitemap.xml (auto-generated)
+  ├── Robots.txt
+  ├── Semantic HTML throughout
+  └── Image optimization (next/image, WebP, lazy loading)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  5. DEVELOPMENT PHASES & ORDER OF EXECUTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  We will build in this exact order, validating each step:
+
+  ┌──────────────────────────────────────────────────────────────────┐
+  │  PHASE 1: DATA & TYPES                               ~1 hour   │
+  │  ├── src/types/index.ts (all interfaces)                        │
+  │  ├── src/constants/site.ts (site metadata)                      │
+  │  ├── src/constants/navigation.ts (nav structure)                │
+  │  └── src/content/*.ts (projects, services, testimonials)        │
+  │                                                                  │
+  │  PHASE 2: LAYOUT SHELL                               ~3 hours  │
+  │  ├── src/components/layout/header.tsx (sticky nav + mega-menu)  │
+  │  ├── src/components/layout/footer.tsx (full footer)             │
+  │  ├── src/components/layout/site-layout.tsx (wrapper)            │
+  │  ├── src/hooks/useTheme.ts (dark mode)                          │
+  │  └── src/hooks/useScrollPosition.ts                             │
+  │                                                                  │
+  │  PHASE 3: HERO SECTION                               ~3 hours  │
+  │  ├── src/components/sections/hero.tsx                            │
+  │  ├── Animated text component                                     │
+  │  ├── Abstract visual / gradient blob                             │
+  │  └── Perfect responsiveness across all breakpoints               │
+  │                                                                  │
+  │  PHASE 4: REMAINING HOMEPAGE SECTIONS                ~8 hours  │
+  │  ├── src/components/sections/logo-marquee.tsx                    │
+  │  ├── src/components/sections/featured-work.tsx                   │
+  │  ├── src/components/sections/services-overview.tsx               │
+  │  ├── src/components/sections/why-rapsora.tsx                     │
+  │  ├── src/components/sections/testimonials.tsx                    │
+  │  ├── src/components/sections/process.tsx                         │
+  │  ├── src/components/sections/blog-preview.tsx                    │
+  │  └── src/components/sections/cta-banner.tsx                      │
+  │                                                                  │
+  │  PHASE 5: HOMEPAGE ASSEMBLY & POLISH                 ~2 hours  │
+  │  ├── app/page.tsx (compose all sections)                         │
+  │  ├── Scroll animation orchestration                              │
+  │  ├── Responsive testing (mobile, tablet, desktop)                │
+  │  ├── Performance optimization                                    │
+  │  └── SEO meta (generateMetadata, JSON-LD)                       │
+  │                                                                  │
+  │  ── HOMEPAGE COMPLETE ──                                         │
+  │                                                                  │
+  │  PHASE 6+: INTERIOR PAGES (future)                              │
+  │  ├── /work (portfolio grid)                                      │
+  │  ├── /work/[slug] (case study)                                   │
+  │  ├── /services (detailed services)                               │
+  │  ├── /about (team, culture, stats)                               │
+  │  ├── /blog (blog listing)                                        │
+  │  ├── /blog/[slug] (blog post)                                    │
+  │  └── /contact (form + info)                                      │
+  └──────────────────────────────────────────────────────────────────┘
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  6. FILE STRUCTURE (Final Homepage State)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  src/
+  ├── components/
+  │   ├── layout/
+  │   │   ├── container.tsx          ✅ exists
+  │   │   ├── header.tsx             ← build
+  │   │   ├── footer.tsx             ← build
+  │   │   └── site-layout.tsx        ← build
+  │   │
+  │   ├── sections/
+  │   │   ├── hero.tsx               ← build
+  │   │   ├── logo-marquee.tsx       ← build
+  │   │   ├── featured-work.tsx      ← build
+  │   │   ├── services-overview.tsx  ← build
+  │   │   ├── why-rapsora.tsx        ← build
+  │   │   ├── testimonials.tsx       ← build
+  │   │   ├── process.tsx            ← build
+  │   │   ├── blog-preview.tsx       ← build
+  │   │   └── cta-banner.tsx         ← build
+  │   │
+  │   ├── shared/
+  │   │   ├── section-heading.tsx    ← build
+  │   │   ├── project-card.tsx       ← build
+  │   │   ├── animated-text.tsx      ← build
+  │   │   └── gradient-blob.tsx      ← build
+  │   │
+  │   └── ui/                        ✅ shadcn (exists)
+  │
+  ├── content/
+  │   ├── projects.ts                ← build
+  │   ├── services.ts                ← build
+  │   └── testimonials.ts            ← build
+  │
+  ├── constants/
+  │   ├── site.ts                    ← build
+  │   └── navigation.ts             ← build
+  │
+  ├── hooks/
+  │   ├── useTheme.ts                ← build
+  │   └── useScrollPosition.ts      ← build
+  │
+  ├── types/
+  │   └── index.ts                   ← build
+  │
+  ├── lib/
+  │   └── utils.ts                   ✅ exists
+  │
+  └── styles/                        (additional styles if needed)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  7. QUALITY CHECKLIST (Before Considering Homepage "Done")
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  DESIGN
+  [ ] Every section has clear visual hierarchy
+  [ ] Consistent spacing rhythm across all sections
+  [ ] Typography scale is harmonious (not random font sizes)
+  [ ] Color usage is intentional (purple = action, not decoration)
+  [ ] Dark mode looks as good as light mode
+  [ ] Design feels premium, not template-ish
+
+  ANIMATION
+  [ ] All animations serve a purpose (guide attention, not distract)
+  [ ] Animations are smooth (60fps, no jank)
+  [ ] Reduced motion is respected (prefers-reduced-motion)
+  [ ] No "animation overload" — subtle > flashy
+
+  RESPONSIVENESS
+  [ ] Tested at: 320px, 375px, 768px, 1024px, 1440px, 1920px
+  [ ] Touch targets are ≥44px on mobile
+  [ ] Text is readable without zooming on mobile
+  [ ] No horizontal scroll at any breakpoint
+
+  PERFORMANCE
+  [ ] Lighthouse 95+ on all categories
+  [ ] All images use next/image with proper sizing
+  [ ] No layout shift (CLS < 0.1)
+  [ ] Fonts are preloaded / display: swap
+
+  SEO
+  [ ] Unique, compelling title and meta description
+  [ ] Single <h1> on the page
+  [ ] Proper heading hierarchy (h1 → h2 → h3)
+  [ ] All images have descriptive alt text
+  [ ] Open Graph + Twitter Card meta present
+
+  ACCESSIBILITY
+  [ ] All interactive elements are keyboard-focusable
+  [ ] Focus indicators are visible
+  [ ] Color contrast passes WCAG AA
+  [ ] Screen reader tested (sensible reading order)
+
+  CONVERSION
+  [ ] Primary CTA ("Start a Project") visible without scrolling
+  [ ] CTA appears at least 3 times on the page (header, hero, footer banner)
+  [ ] Phone/email contact info available
+  [ ] No dead-end sections (every section links somewhere)
+  [ ] Page tells a complete story top-to-bottom
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  READY TO BUILD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  NEXT STEP: Begin Phase 1 — Define types, constants, and content data.
+  Then immediately move into Phase 2 — Build the layout shell (header + footer).
+
+================================================================================

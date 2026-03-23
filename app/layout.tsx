@@ -3,6 +3,7 @@ import './globals.css';
 import localFont from 'next/font/local';
 import { Inter } from 'next/font/google';
 import { SiteLayout } from '@/components/layout/site-layout';
+import { ThemeProvider } from '@/components/shared/theme-provider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -71,25 +72,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* Prevent FOUC — set dark class before paint */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const theme = localStorage.getItem('rapsora-theme');
-                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                  document.documentElement.classList.add('dark');
-                }
-              } catch (e) {}
-            `,
-          }}
-        />
-      </head>
       <body
         className={`${inter.variable} ${satoshi.variable} antialiased`}
       >
-        <SiteLayout>{children}</SiteLayout>
+        <ThemeProvider>
+          <SiteLayout>{children}</SiteLayout>
+        </ThemeProvider>
       </body>
     </html>
   );
