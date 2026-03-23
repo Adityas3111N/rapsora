@@ -109,7 +109,7 @@ export function HeroSection() {
 
                         <div className="flex flex-col items-start pointer-events-auto">
                             {/* BLOCK 1: Greeting — Concave on both top corners to "float" it */}
-                            <div className="relative w-fit bg-white/95 py-4 lg:py-7 px-10 lg:px-14 rounded-r-[3.5rem] lg:rounded-r-[5rem]">
+                            <div className="relative w-fit bg-white/98 dark:bg-[#0A0A0B]/95 py-4 lg:py-7 px-10 lg:px-14 rounded-r-[3.5rem] lg:rounded-r-[5rem]">
                                 <motion.p
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -129,7 +129,7 @@ export function HeroSection() {
                             </div>
 
                             {/* MOBILE: Single Consolidated Block */}
-                            <div className="lg:hidden relative w-fit bg-white/95 px-8 py-4 rounded-r-[3.5rem]">
+                            <div className="lg:hidden relative w-fit bg-white/98 dark:bg-[#0A0A0B]/95 px-8 py-4 rounded-r-[3.5rem]">
                                 <motion.h1
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@ export function HeroSection() {
                             {/* DESKTOP: Original Staircase (approved by user) */}
                             <div className="hidden lg:flex flex-col items-start">
                                 {/* BLOCK 2: Headline Line 1 */}
-                                <div className="relative w-fit bg-white/95 py-1.5 px-12 rounded-r-[5rem]">
+                                <div className="relative w-fit bg-white/98 dark:bg-[#0A0A0B]/95 py-1.5 px-12 rounded-r-[5rem]">
                                     <motion.h1
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -157,7 +157,7 @@ export function HeroSection() {
                                 </div>
 
                                 {/* BLOCK 3: Headline Line 2 */}
-                                <div className="relative w-fit bg-white/95 pt-0 pb-0 px-12 rounded-r-[5rem]">
+                                <div className="relative w-fit bg-white/98 dark:bg-[#0A0A0B]/95 pt-0 pb-0 px-12 rounded-r-[5rem]">
                                     <motion.h1
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -170,7 +170,7 @@ export function HeroSection() {
                                 </div>
 
                                 {/* BLOCK 4: Headline Line 3 */}
-                                <div className="relative w-fit bg-white/95 pt-0 pb-5 px-12 rounded-r-[5rem]">
+                                <div className="relative w-fit bg-white/98 dark:bg-[#0A0A0B]/95 pt-0 pb-5 px-12 rounded-r-[5rem]">
                                     <motion.h1
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -184,7 +184,7 @@ export function HeroSection() {
                             </div>
 
                             {/* BLOCK 5: The CTAs (Steps In) */}
-                            <div className="relative bg-white/95 px-8 lg:px-12 pt-5 pb-6 lg:pb-20 rounded-r-[3.5rem] lg:rounded-r-[5rem]">
+                            <div className="relative bg-white/98 dark:bg-[#0A0A0B]/95 px-8 lg:px-12 pt-5 pb-6 lg:pb-20 rounded-r-[3.5rem] lg:rounded-r-[5rem]">
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
