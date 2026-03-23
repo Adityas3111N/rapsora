@@ -35,7 +35,7 @@ export function HeroSection() {
 
     const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
     const contentY = useTransform(scrollYProgress, [0, 1], [0, 120]);
-    const videoOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.4]);
+    const videoOpacity = 1; // Removed fade to eliminate 'white tint' as requested
 
     // ── MAGNETIC: Mouse Affinity ──
     const mouseX = useMotionValue(0);
@@ -70,18 +70,18 @@ export function HeroSection() {
             ref={containerRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="relative w-full pt-40 lg:pt-40 bg-background min-h-[115vh]"
+            className="relative w-full pt-24 lg:pt-24 bg-background min-h-[140vh]"
         >
             <div className="mx-auto px-2 sm:px-6 xl:px-12 2xl:px-20 3xl:px-40 4xl:px-60">
 
                 {/* ── Outer Project Wrapper ── */}
                 <motion.div
-                    className="relative w-full overflow-hidden rounded-[4rem] aspect-[9/16] md:aspect-square lg:aspect-[16/9] bg-gray-100 shadow-2xl"
+                    className="relative w-full overflow-hidden rounded-[4rem] aspect-[9/16] md:aspect-square lg:aspect-[16/9] bg-black shadow-2xl"
                 >
 
                     {/* 🎞️ Layer 1: Background Video (With Parallax Scale) */}
                     <motion.div
-                        style={{ scale: videoScale }}
+                        style={{ scale: videoScale, opacity: videoOpacity }}
                         className="absolute inset-0 z-0 overflow-hidden"
                     >
                         <video
@@ -89,27 +89,22 @@ export function HeroSection() {
                             loop
                             muted
                             playsInline
+                            preload="auto"
                             className="h-full w-full object-cover"
                         >
                             <source src={SHOWREEL_VIDEO} type="video/mp4" />
                         </video>
                     </motion.div>
 
-                    {/* 🧩 Layer 2: The Stepped White Content Area (With Magnetic Drift & Monolithic Shadow) */}
+                    {/* 🧩 Layer 2: The Stepped White Content Area (With Magnetic Drift) */}
                     <motion.div
-                        style={{ 
-                            y: contentY, 
-                            x: driftX, 
-                            translateY: driftY, 
-                            rotate: tiltR,
-                            willChange: 'transform'
-                        }}
-                        className="absolute top-8 lg:top-24 left-0 w-[88%] lg:w-[48vw] z-20 pointer-events-none shadow-[0_25px_100px_-15px_rgba(0,0,0,0.3)] dark:shadow-[0_25px_100px_-15px_rgba(0,0,0,0.7)]"
+                        style={{ y: contentY, x: driftX, translateY: driftY, rotate: tiltR, willChange: 'transform' }}
+                        className="absolute top-8 lg:top-24 left-0 w-[88%] lg:w-[48vw] z-20 pointer-events-none"
                     >
 
                         <div className="flex flex-col items-start pointer-events-auto">
                             {/* BLOCK 1: Greeting — Concave on both top corners to "float" it */}
-                            <div className="relative w-fit bg-white/98 dark:bg-[#0A0A0B]/95 py-4 lg:py-7 px-10 lg:px-14 rounded-r-[3.5rem] lg:rounded-r-[5rem]">
+                            <div className="relative w-fit bg-white dark:bg-[#0A0A0B] py-4 lg:py-7 px-10 lg:px-14 rounded-r-[3.5rem] lg:rounded-r-[5rem]">
                                 <motion.p
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -129,7 +124,7 @@ export function HeroSection() {
                             </div>
 
                             {/* MOBILE: Single Consolidated Block */}
-                            <div className="lg:hidden relative w-fit bg-white/98 dark:bg-[#0A0A0B]/95 px-8 py-4 rounded-r-[3.5rem]">
+                            <div className="lg:hidden relative w-fit bg-white dark:bg-[#0A0A0B] px-8 py-4 rounded-r-[3.5rem]">
                                 <motion.h1
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -144,7 +139,7 @@ export function HeroSection() {
                             {/* DESKTOP: Original Staircase (approved by user) */}
                             <div className="hidden lg:flex flex-col items-start">
                                 {/* BLOCK 2: Headline Line 1 */}
-                                <div className="relative w-fit bg-white/98 dark:bg-[#0A0A0B]/95 py-1.5 px-12 rounded-r-[5rem]">
+                                <div className="relative w-fit bg-white dark:bg-[#0A0A0B] py-1.5 px-12 rounded-r-[5rem]">
                                     <motion.h1
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -157,7 +152,7 @@ export function HeroSection() {
                                 </div>
 
                                 {/* BLOCK 3: Headline Line 2 */}
-                                <div className="relative w-fit bg-white/98 dark:bg-[#0A0A0B]/95 pt-0 pb-0 px-12 rounded-r-[5rem]">
+                                <div className="relative w-fit bg-white dark:bg-[#0A0A0B] pt-0 pb-0 px-12 rounded-r-[5rem]">
                                     <motion.h1
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -170,7 +165,7 @@ export function HeroSection() {
                                 </div>
 
                                 {/* BLOCK 4: Headline Line 3 */}
-                                <div className="relative w-fit bg-white/98 dark:bg-[#0A0A0B]/95 pt-0 pb-5 px-12 rounded-r-[5rem]">
+                                <div className="relative w-fit bg-white dark:bg-[#0A0A0B] pt-0 pb-10 px-12 rounded-r-[5rem]">
                                     <motion.h1
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -184,7 +179,7 @@ export function HeroSection() {
                             </div>
 
                             {/* BLOCK 5: The CTAs (Steps In) */}
-                            <div className="relative bg-white/98 dark:bg-[#0A0A0B]/95 px-8 lg:px-12 pt-5 pb-6 lg:pb-20 rounded-r-[3.5rem] lg:rounded-r-[5rem]">
+                            <div className="relative bg-white dark:bg-[#0A0A0B] px-8 lg:px-12 pt-12 lg:pt-16 pb-6 lg:pb-20 rounded-r-[3.5rem] lg:rounded-r-[5rem]">
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -218,43 +213,36 @@ export function HeroSection() {
                         </div>
                     </motion.div>
 
-                    {/* 🏅 Andy Card (Anchored to Hero Bottom-Right) */}
-                    <motion.div 
-                        style={{ 
-                            position: 'absolute',
-                            right: '48px',
-                            bottom: '48px',
-                            scale: useTransform(scrollYProgress, [0, 0.5], [1.15, 1]),
-                            opacity: useTransform(scrollYProgress, [0, 0.2], [1, 1]),
-                            zIndex: 60
-                        }}
-                        className="pointer-events-auto"
-                    >
-                        <motion.a
-                            href="#"
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 1, duration: 1, ease: EASE }}
-                            className="group relative flex items-center rounded-full py-1.5 pl-1.5 pr-8 overflow-hidden shadow-3xl bg-white/95 dark:bg-[#1C1D1F]/95 backdrop-blur-md transition-transform hover:scale-105 active:scale-95"
-                        >
-                            <div className="relative w-12 h-12 lg:w-14 lg:h-14 mr-4 rounded-full bg-foreground/10 overflow-hidden flex items-center justify-center">
-                                <video
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                >
-                                    <source src="https://cdn.coverr.co/videos/coverr-team-members-come-to-the-office-5949/1080p.mp4" type="video/mp4" />
-                                </video>
-                                <Play className="absolute z-20 w-4 h-4 text-white fill-white transition-opacity group-hover:opacity-0" />
-                            </div>
-                            <div>
-                                <div className="text-[14px] font-bold text-foreground transition-colors group-hover:text-primary">Hear from Andy</div>
-                                <div className="text-[11px] font-bold text-foreground/40 uppercase tracking-widest leading-none mt-1">Co-Founder of RapSora</div>
-                            </div>
-                        </motion.a>
-                    </motion.div>
+                    {/* 🏅 Sticky Andy Card (Bottom Right) */}
+                    <div className="absolute top-0 right-0 flex h-full z-40 py-8 lg:py-12 px-6 lg:px-12 pointer-events-none">
+                        <div className="sticky bottom-10 self-end pointer-events-auto">
+                            <motion.a
+                                href="#"
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.6, duration: 0.8, ease: EASE }}
+                                className="group relative flex items-center rounded-full py-1.5 pl-1.5 pr-5 lg:pr-8 overflow-hidden shadow-3xl bg-white dark:bg-[#1C1D1F] transition-transform hover:scale-105 active:scale-95 translate-y-2 lg:translate-y-0"
+                            >
+                                <div className="relative w-12 h-12 lg:w-14 lg:h-14 mr-3 lg:mr-4 rounded-full bg-foreground/10 overflow-hidden flex items-center justify-center">
+                                    <video
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        preload="auto"
+                                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    >
+                                        <source src="https://cdn.coverr.co/videos/coverr-team-members-come-to-the-office-5949/1080p.mp4" type="video/mp4" />
+                                    </video>
+                                    <Play className="absolute z-20 w-4 h-4 text-white fill-white transition-opacity group-hover:opacity-0" />
+                                </div>
+                                <div>
+                                    <div className="text-[13px] lg:text-[14px] font-bold text-foreground">Hear from Andy</div>
+                                    <div className="text-[10px] lg:text-[11px] font-bold text-foreground/40 uppercase tracking-widest">Co-Founder of RapSora</div>
+                                </div>
+                            </motion.a>
+                        </div>
+                    </div>
                 </motion.div>
             </div>
         </section>

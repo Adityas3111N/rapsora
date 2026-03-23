@@ -218,7 +218,7 @@ function DesktopDropdown({
                 aria-expanded={isOpen}
                 aria-haspopup="true"
                 className={cn(
-                    'relative flex items-center gap-1 text-[17px] font-medium tracking-tight',
+                    'relative flex items-center gap-1 text-[17px] font-bold tracking-tight',
                     'transition-colors duration-150 hover:text-foreground focus-visible:outline-none',
                     isActive ? 'text-foreground' : 'text-foreground/70'
                 )}
@@ -333,7 +333,7 @@ function DesktopNavLink({
             href={link.href}
             onMouseEnter={onMouseEnter}
             className={cn(
-                'relative text-[17px] font-medium tracking-tight px-4 py-2 rounded-full z-10',
+                'relative text-[17px] font-bold tracking-tight px-4 py-2 rounded-full z-10',
                 'transition-all duration-300 focus-visible:outline-none',
                 isActive
                     ? 'text-primary'
@@ -596,8 +596,8 @@ export function Header() {
                             ? [
                                 'h-[64px]',
                                 'rounded-full',
-                                'bg-white/70 dark:bg-[#1C1D1F]/80 backdrop-blur-xl',
-                                'border border-white/20 dark:border-white/5',
+                                'bg-white/98 dark:bg-[#1C1D1F]',
+                                'border border-white/40',
                                 'shadow-[0_20px_50px_rgba(0,0,0,0.1)]',
                             ]
                             : [
