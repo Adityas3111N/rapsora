@@ -156,8 +156,8 @@
    Primary: Slightly brighter violet for contrast
    ======================================== */
 .dark {
-  --background: oklch(0.08 0.006 280);
-  /* #050508 — near-pure black */
+  --background: oklch(0 0 0);
+  /* #000000 — pure black */
   --foreground: oklch(0.96 0.003 75);
   /* #F5F5F0 — warm white */
   --card: oklch(0.12 0.008 280);
@@ -274,13 +274,43 @@
   .animate-marquee {
     animation: marquee 35s linear infinite;
   }
-  
+
   .animate-marquee:hover {
     animation-play-state: paused;
+  }
+
+  /* Project Card Notch — smooth organic shape */
+  .card-notch {
+    @apply absolute top-0 right-0 bg-background px-10 pb-5 rounded-bl-[2.5rem] z-30 transition-colors duration-500;
+  }
+
+  /* Left inverted curve — smooth concave and uniform */
+  .card-notch::before {
+    content: '';
+    @apply absolute top-0 w-[2.5rem] h-[2.5rem] bg-transparent pointer-events-none;
+    right: 100%;
+    border-top-right-radius: 2.5rem;
+    box-shadow: 1.25rem -1.25rem 0 0 var(--background);
+    transition: box-shadow 0.5s ease;
+  }
+
+  /* Bottom inverted curve — uniform with left */
+  .card-notch::after {
+    content: '';
+    @apply absolute right-0 w-[2.5rem] h-[2.5rem] bg-transparent pointer-events-none;
+    top: 100%;
+    border-top-right-radius: 2.5rem;
+    box-shadow: 1.25rem -1.25rem 0 0 var(--background);
+    transition: box-shadow 0.5s ease;
   }
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-100% / 3)); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
 }

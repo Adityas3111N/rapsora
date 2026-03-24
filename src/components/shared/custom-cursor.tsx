@@ -27,7 +27,8 @@ export function CustomCursor() {
         const handleMouseOver = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
             const interactive = target.closest('a, button, [role="button"], input, textarea, select, [data-cursor-hover]');
-            setIsHovering(!!interactive);
+            const isIgnored = target.closest('[data-cursor-ignore]');
+            setIsHovering(!!interactive && !isIgnored);
         };
 
         const handleMouseLeave = () => setIsVisible(false);

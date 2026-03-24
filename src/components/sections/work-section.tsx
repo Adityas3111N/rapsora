@@ -64,44 +64,60 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: index % 2 === 1 ? 0.15 : 0 }}
         >
             <Link href={project.href} className="group block">
-                {/* Image Container */}
-                <div className="relative overflow-hidden rounded-[1.75rem] lg:rounded-[2.25rem] aspect-[4/5] bg-muted">
+                {/* Image Container — top-right has no radius since notch sits there */}
+                <div className="relative overflow-hidden rounded-[2rem] lg:rounded-[2.5rem] rounded-tr-none aspect-[5/4] bg-muted shadow-2xl">
                     <Image
                         src={project.image}
                         alt={project.title}
                         fill
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
                         sizes="(max-width: 768px) 100vw, 50vw"
                     />
-                    
-                    {/* Category Tags */}
-                    <div className="absolute top-5 right-5 flex flex-wrap gap-2 justify-end">
-                        {project.tags.map(tag => (
-                            <span
-                                key={tag}
-                                className="px-4 py-1.5 rounded-full bg-background/90 backdrop-blur-sm text-foreground text-[12px] font-bold tracking-wide"
-                            >
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
-                </div>
 
-                {/* Meta */}
-                <div className="mt-6 lg:mt-8">
-                    <div className="flex items-center gap-3 text-[14px] text-foreground/50 font-medium mb-2">
-                        <span>{project.year}</span>
-                        <span className="w-1 h-1 rounded-full bg-foreground/40" />
-                        <span>{project.client}</span>
+                    {/* Subtle gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black/30 opacity-50 transition-opacity duration-500 group-hover:opacity-70" />
+
+                    {/* 🏷️ The NOTCH with Category Tags — compact pills */}
+                    <div className="card-notch">
+                        <div className="flex flex-wrap gap-2 justify-end">
+                            {project.tags.map(tag => (
+                                <span
+                                    key={tag}
+                                    className="px-3.5 py-1.5 rounded-full bg-foreground/90 text-background font-bold text-[9px] lg:text-[10px] uppercase tracking-wider hover:bg-primary hover:text-white transition-colors duration-300"
+                                >
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
                     </div>
-                    <h3 className="text-[1.25rem] lg:text-[1.5rem] font-heading font-bold leading-snug text-foreground group-hover:text-primary transition-colors duration-300">
-                        {project.title}
-                    </h3>
+
+                    {/* Metric floating inside image */}
                     {project.metric && (
-                        <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-[12px] font-bold tracking-wide">
-                            {project.metric}
+                        <div className="absolute bottom-5 left-5 z-20">
+                            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-[11px] font-bold tracking-wide shadow-xl">
+                                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                                {project.metric}
+                            </div>
                         </div>
                     )}
+                </div>
+
+                {/* Info Text Area */}
+                <div className="mt-8 lg:mt-10 px-2">
+                    <div className="flex items-center gap-4 text-[13px] text-muted-foreground font-bold tracking-[0.1em] uppercase mb-4">
+                        <span>{project.client}</span>
+                        <div className="h-px w-8 bg-border transition-all duration-500 group-hover:w-12 group-hover:bg-primary" />
+                        <span>{project.year}</span>
+                    </div>
+
+                    <h3 className="text-[1.75rem] lg:text-[2.25rem] font-heading font-black leading-[1.1] text-foreground transition-all duration-300 group-hover:translate-x-1 group-hover:text-primary">
+                        {project.title}
+                    </h3>
+
+                    <div className="mt-6 flex items-center gap-2 text-primary font-bold text-sm opacity-0 -translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-0">
+                        Explore Project
+                        <ArrowUpRight className="w-4 h-4" />
+                    </div>
                 </div>
             </Link>
         </motion.div>
@@ -149,7 +165,7 @@ export function WorkSection() {
                                 <div className="flex items-center gap-0.5">
                                     {[...Array(5)].map((_, i) => (
                                         <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.368-2.448a1 1 0 00-1.176 0l-3.368 2.448c-.784.57-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z"/>
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.368 2.448a1 1 0 00-.364 1.118l1.287 3.957c.3.921-.755 1.688-1.54 1.118l-3.368-2.448a1 1 0 00-1.176 0l-3.368 2.448c-.784.57-1.838-.197-1.539-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.063 9.384c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.957z" />
                                         </svg>
                                     ))}
                                 </div>

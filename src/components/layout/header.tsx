@@ -544,7 +544,7 @@ export function Header() {
                                 'h-[64px]',
                                 'rounded-full',
                                 'bg-white/70 dark:bg-[#1C1D1F]/80 backdrop-blur-md',
-                                'border border-white/20 dark:border-white/10',
+                                'border border-white/20 dark:border-transparent',
                                 'shadow-[0_20px_50px_rgba(0,0,0,0.05)]',
                             ]
                             : [

@@ -105,7 +105,7 @@ export function HeroSection() {
 
                         <div className="flex flex-col items-start pointer-events-auto">
                             {/* BLOCK 1: Greeting — Concave on both top corners to "float" it */}
-                            <div className="relative w-fit bg-white dark:bg-[#0A0A0B] py-4 lg:py-7 px-10 lg:px-14 rounded-r-[3.5rem] lg:rounded-r-[5rem]">
+                            <div className="relative w-fit bg-white dark:bg-zinc-950 py-4 lg:py-7 px-10 lg:px-14 rounded-r-[3.5rem] lg:rounded-r-[5rem] shadow-2xl transition-colors duration-500">
                                 <motion.p
                                     initial={{ opacity: 0, y: 15 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -117,15 +117,15 @@ export function HeroSection() {
                                 </motion.p>
 
                                 {/* Top concave corners (masking the video above) */}
-                                <Corner className="absolute left-0 -top-[31.9px] lg:-top-[51.9px] h-[32px] w-[32px] lg:h-[52px] lg:w-[52px] text-background rotate-180" />
-                                <Corner className="absolute right-0 -top-[31.9px] lg:-top-[51.9px] h-[32px] w-[32px] lg:h-[52px] lg:w-[52px] text-background rotate-90" />
+                                <Corner className="absolute left-0 -top-[31.9px] lg:-top-[51.9px] h-[32px] w-[32px] lg:h-[52px] lg:w-[52px] text-background rotate-180 transition-colors duration-500" />
+                                <Corner className="absolute right-0 -top-[31.9px] lg:-top-[51.9px] h-[32px] w-[32px] lg:h-[52px] lg:w-[52px] text-background rotate-90 transition-colors duration-500" />
 
                                 {/* Inner Elbow: Bridges Block 1 Bottom-Right to Block 2 Top edge */}
-                                <Corner className="absolute left-full top-full -translate-y-[1px] h-[32px] w-[32px] lg:h-[52px] lg:w-[52px] text-background rotate-90" />
+                                <Corner className="absolute left-full top-full -translate-y-[1px] h-[32px] w-[32px] lg:h-[52px] lg:w-[52px] text-background rotate-90 transition-colors duration-500" />
                             </div>
 
                             {/* MOBILE: Single Consolidated Block */}
-                            <div className="lg:hidden relative w-fit bg-white dark:bg-[#0A0A0B] px-8 py-4 rounded-r-[3.5rem]">
+                            <div className="lg:hidden relative w-fit bg-white dark:bg-zinc-950 px-8 py-4 rounded-r-[3.5rem] transition-colors duration-500">
                                 <motion.h1
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -134,13 +134,13 @@ export function HeroSection() {
                                 >
                                     A web design and branding agency that actually converts
                                 </motion.h1>
-                                <Corner className="absolute left-full top-full -translate-y-[1px] h-[32px] w-[32px] text-background rotate-90" />
+                                <Corner className="absolute left-full top-full -translate-y-[1px] h-[32px] w-[32px] text-background rotate-90 transition-colors duration-500" />
                             </div>
 
                             {/* DESKTOP: Original Staircase (approved by user) */}
                             <div className="hidden lg:flex flex-col items-start">
                                 {/* BLOCK 2: Headline Line 1 */}
-                                <div className="relative w-fit bg-white dark:bg-[#0A0A0B] py-1.5 px-12 rounded-r-[5rem]">
+                                <div className="relative w-fit bg-white dark:bg-zinc-950 py-1.5 px-12 rounded-r-[5rem] transition-colors duration-500">
                                     <motion.h1
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -149,11 +149,11 @@ export function HeroSection() {
                                     >
                                         A web design and
                                     </motion.h1>
-                                    <Corner className="absolute left-full top-full -translate-y-[1px] h-[52px] w-[52px] text-background rotate-90" />
+                                    <Corner className="absolute left-full top-full -translate-y-[1px] h-[52px] w-[52px] text-background rotate-90 transition-colors duration-500" />
                                 </div>
 
                                 {/* BLOCK 3: Headline Line 2 */}
-                                <div className="relative w-fit bg-white dark:bg-[#0A0A0B] pt-0 pb-0 px-12 rounded-r-[5rem]">
+                                <div className="relative w-fit bg-white dark:bg-zinc-950 pt-0 pb-0 px-12 rounded-r-[5rem] transition-colors duration-500">
                                     <motion.h1
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -162,11 +162,11 @@ export function HeroSection() {
                                     >
                                         branding agency
                                     </motion.h1>
-                                    <Corner className="absolute left-full top-full -translate-y-[1px] h-[52px] w-[52px] text-background rotate-90" />
+                                    <Corner className="absolute left-full top-full -translate-y-[1px] h-[52px] w-[52px] text-background rotate-90 transition-colors duration-500" />
                                 </div>
 
                                 {/* BLOCK 4: Headline Line 3 */}
-                                <div className="relative w-fit bg-white dark:bg-[#0A0A0B] pt-0 pb-10 px-12 rounded-r-[5rem]">
+                                <div className="relative w-fit bg-white dark:bg-zinc-950 pt-0 pb-10 px-12 rounded-r-[5rem] transition-colors duration-500">
                                     <motion.h1
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -175,12 +175,12 @@ export function HeroSection() {
                                     >
                                         that actually converts
                                     </motion.h1>
-                                    <Corner className="absolute left-full top-full -translate-y-[1px] h-[52px] w-[52px] text-background rotate-90" />
+                                    <Corner className="absolute left-full top-full -translate-y-[1px] h-[52px] w-[52px] text-background rotate-90 transition-colors duration-500" />
                                 </div>
                             </div>
 
                             {/* BLOCK 5: The CTAs (Steps In) */}
-                            <div className="relative bg-white dark:bg-[#0A0A0B] px-8 lg:px-12 pt-12 lg:pt-16 pb-6 lg:pb-20 rounded-r-[3.5rem] lg:rounded-r-[5rem]">
+                            <div className="relative bg-white dark:bg-zinc-950 px-8 lg:px-12 pt-12 lg:pt-16 pb-6 lg:pb-20 rounded-r-[3.5rem] lg:rounded-r-[5rem] transition-colors duration-500">
                                 <motion.div
                                     initial={{ opacity: 0, y: 30 }}
                                     animate={{ opacity: 1, y: 0 }}
