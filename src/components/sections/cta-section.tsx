@@ -11,7 +11,7 @@ import { GooeyCTA } from '@/components/shared/gooey-cta';
 function MarqueeItem() {
     return (
         <div className="flex items-center gap-4 sm:gap-6 lg:gap-10 pr-4 sm:pr-6 lg:pr-10 shrink-0">
-            <h2 className="font-heading text-[12vw] sm:text-[10vw] lg:text-[14vw] font-medium tracking-tight leading-none text-foreground mix-blend-plus-darker dark:mix-blend-plus-lighter whitespace-nowrap pt-8 pb-4">
+            <h2 className="font-heading text-[16vw] sm:text-[10vw] lg:text-[14vw] font-medium tracking-tight leading-none text-foreground mix-blend-plus-darker dark:mix-blend-plus-lighter whitespace-nowrap pt-8 pb-4">
                 Let&apos;s work together.
             </h2>
             <div className="flex items-center justify-center w-[10vw] h-[10vw] sm:w-[6vw] sm:h-[6vw] lg:w-[8vw] lg:h-[8vw] rounded-full bg-primary shrink-0 mt-2 sm:mt-4 lg:mt-6 transition-transform hover:scale-105 hover:-rotate-12 cursor-pointer shadow-[0_0_40px_rgba(144,97,249,0.4)]">
@@ -48,8 +48,8 @@ export function CtaSection() {
             </div>
 
             {/* The Psychological Offer (Bottom) */}
-            <div className="w-full max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-24 mt-16 lg:mt-24">
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-12 bg-black dark:bg-[#0D0D14] text-white p-10 lg:p-16 rounded-[2rem] lg:rounded-[3rem] border border-white/5 relative overflow-hidden group">
+            <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-12 lg:px-24 mt-12 lg:mt-24">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 bg-black dark:bg-[#0D0D14] text-white p-8 lg:p-16 rounded-[2rem] lg:rounded-[3rem] border border-white/5 relative overflow-hidden group">
                     {/* Abstract background glow */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full pointer-events-none group-hover:bg-primary/20 transition-all duration-1000" />
                     

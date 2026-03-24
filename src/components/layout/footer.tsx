@@ -78,7 +78,7 @@ export function Footer() {
 
 
                     {/* ── Grid Content ── */}
-                    <div className="px-8 sm:px-12 lg:px-24 pt-20 lg:pt-32 pb-16 lg:pb-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-8 max-w-[1400px] mx-auto ml-0 md:ml-20 lg:ml-28">
+                    <div className="px-6 sm:px-12 lg:px-24 pt-12 lg:pt-32 pb-16 lg:pb-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 max-w-[1400px] mx-auto ml-0 md:ml-12 lg:ml-28">
 
                         {/* Column 1: CTA */}
                         <div className="lg:col-span-5 flex flex-col items-start pr-8">

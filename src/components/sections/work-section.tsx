@@ -80,10 +80,13 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[0]; index: n
                     {/* 🏷️ The NOTCH with Category Tags — compact pills */}
                     <div className="card-notch">
                         <div className="flex flex-wrap gap-2 justify-end">
-                            {project.tags.map(tag => (
+                            {project.tags.map((tag, i) => (
                                 <span
                                     key={tag}
-                                    className="px-3.5 py-1.5 rounded-full bg-foreground/90 text-background font-bold text-[9px] lg:text-[10px] uppercase tracking-wider hover:bg-primary hover:text-white transition-colors duration-300"
+                                    className={cn(
+                                        "px-3.5 py-1.5 rounded-full bg-foreground/90 text-background font-bold text-[9px] lg:text-[10px] uppercase tracking-wider hover:bg-primary hover:text-white transition-colors duration-300",
+                                        i >= 2 && "hidden sm:inline-block"
+                                    )}
                                 >
                                     {tag}
                                 </span>

@@ -165,7 +165,7 @@ function FeaturedTestimonial() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.8, ease: EASE, delay: 0.7 }}
-                className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 lg:bottom-12 lg:right-12 z-20 flex items-center gap-3"
+                className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 lg:bottom-12 lg:right-12 z-20 flex flex-col sm:flex-row items-end gap-3"
             >
                 <Magnetic strength={0.3}>
                     <button className="group/btn flex items-center gap-2.5 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-white text-black text-[13px] sm:text-[14px] font-bold tracking-tight shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 active:scale-95">
@@ -259,7 +259,7 @@ export function TestimonialsSection() {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full bg-black pt-8 pb-0 lg:pt-16 lg:pb-0 overflow-hidden"
+            className="relative w-full bg-black pt-8 pb-24 lg:pt-16 lg:pb-32 overflow-hidden"
         >
             {/* Ambient glow effects */}
             <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-primary/[0.03] blur-[150px] rounded-full pointer-events-none" />

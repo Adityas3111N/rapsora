@@ -191,10 +191,10 @@ function BlogCard({ post }: { post: typeof BLOG_POSTS[0] }) {
                     A white box in the bottom-left corner with 2 SVG corner masks
                     to flawlessly blend it into the image container.
                 */}
-                <div className="absolute bottom-0 left-0 w-24 h-24 lg:w-28 lg:h-28 bg-background rounded-tr-[2rem] lg:rounded-tr-[2.5rem] z-10 flex items-end justify-start pb-0 pl-0">
+                <div className="absolute bottom-0 left-0 w-20 h-20 lg:w-28 lg:h-28 bg-background rounded-tr-[1.5rem] lg:rounded-tr-[2.5rem] z-10 flex items-end justify-start pb-0 pl-0">
                     
                     {/* Author Avatar Nested Inside */}
-                    <div className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-[1.5rem] lg:rounded-[1.8rem] overflow-hidden bg-foreground/5 shadow-inner">
+                    <div className="relative w-16 h-16 lg:w-24 lg:h-24 rounded-[1.2rem] lg:rounded-[1.8rem] overflow-hidden bg-foreground/5 shadow-inner">
                         <Image src={post.author.avatar} alt={post.author.name} fill className="object-cover" />
                     </div>
 
