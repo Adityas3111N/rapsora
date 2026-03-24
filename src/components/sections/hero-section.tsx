@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight, Play } from 'lucide-react';
 import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
+import { GooeyCTA } from '@/components/shared/gooey-cta';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -70,7 +71,7 @@ export function HeroSection() {
             ref={containerRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="relative w-full pt-24 lg:pt-24 bg-background min-h-[140vh]"
+            className="relative w-full pt-24 lg:pt-24 pb-8 lg:pb-16 bg-background"
         >
             <div className="mx-auto px-2 sm:px-6 xl:px-12 2xl:px-20 3xl:px-40 4xl:px-60">
 
@@ -186,15 +187,14 @@ export function HeroSection() {
                                     transition={{ delay: 0.3, duration: 0.8, ease: EASE }}
                                     className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10"
                                 >
-                                    <Link
-                                        href="/work"
-                                        className="group flex items-center bg-foreground text-background rounded-full p-1 h-12 lg:h-14 pr-6 lg:pr-7 transition-all hover:scale-[1.02] active:scale-[0.98]"
-                                    >
-                                        <div className="flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center rounded-full bg-background/10 mr-4 lg:mr-5 transition-transform group-hover:rotate-45">
-                                            <ArrowUpRight className="h-5 w-5 lg:h-6 lg:w-6" />
-                                        </div>
-                                        <span className="text-[14px] lg:text-[16px] font-bold">View our work</span>
-                                    </Link>
+                                    <div className="scale-90 sm:scale-100 origin-left">
+                                        <GooeyCTA 
+                                            href="/work" 
+                                            text="View our work" 
+                                            pillColorClass="bg-foreground" 
+                                            textColorClass="text-background"
+                                        />
+                                    </div>
 
                                     <Link
                                         href="/team"

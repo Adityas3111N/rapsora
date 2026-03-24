@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import { Inter } from 'next/font/google';
 import { SiteLayout } from '@/components/layout/site-layout';
 import { ThemeProvider } from '@/components/shared/theme-provider';
+import { CustomCursor } from '@/components/shared/custom-cursor';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -76,6 +77,7 @@ export default function RootLayout({
         className={`${inter.variable} ${satoshi.variable} antialiased`}
       >
         <ThemeProvider>
+          <CustomCursor />
           <SiteLayout>{children}</SiteLayout>
         </ThemeProvider>
       </body>

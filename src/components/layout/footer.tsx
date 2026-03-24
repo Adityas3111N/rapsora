@@ -10,12 +10,15 @@ import { GooeyCTA } from '@/components/shared/gooey-cta';
 export function Footer() {
     const currentYear = new Date().getFullYear();
 
+    const ANIMATED_UNDERLINE = "relative inline-block after:absolute after:-bottom-[2px] after:left-0 after:w-full after:h-[1px] after:bg-current after:origin-bottom-right after:scale-x-0 hover:after:scale-x-100 hover:after:origin-bottom-left after:transition-transform after:duration-300 after:ease-out";
+
+
     const socialLinks = [
-        { icon: Linkedin, href: siteConfig.socials?.linkedin || '#', label: 'LinkedIn' },
-        { icon: Twitter, href: siteConfig.socials?.twitter || '#', label: 'Twitter' },
-        { icon: Github, href: siteConfig.socials?.github || '#', label: 'GitHub' },
-        { icon: Instagram, href: siteConfig.socials?.instagram || '#', label: 'Instagram' },
-        { icon: Dribbble, href: siteConfig.socials?.dribbble || '#', label: 'Dribbble' },
+        { icon: Linkedin, href: siteConfig.socials?.linkedin || '#', label: 'LinkedIn', colorClass: 'hover:bg-[#0A66C2] active:bg-[#0A66C2] hover:text-white active:text-white' },
+        { icon: Twitter, href: siteConfig.socials?.twitter || '#', label: 'Twitter', colorClass: 'hover:bg-[#1DA1F2] active:bg-[#1DA1F2] hover:text-white active:text-white' },
+        { icon: Github, href: siteConfig.socials?.github || '#', label: 'GitHub', colorClass: 'hover:bg-[#181717] active:bg-[#181717] hover:text-white active:text-white' },
+        { icon: Instagram, href: siteConfig.socials?.instagram || '#', label: 'Instagram', colorClass: 'hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] active:bg-gradient-to-tr active:from-[#f9ce34] active:via-[#ee2a7b] active:to-[#6228d7] hover:text-white active:text-white' },
+        { icon: Dribbble, href: siteConfig.socials?.dribbble || '#', label: 'Dribbble', colorClass: 'hover:bg-[#EA4C89] active:bg-[#EA4C89] hover:text-white active:text-white' },
     ];
 
     return (
@@ -52,7 +55,10 @@ export function Footer() {
                             <a 
                                 key={link.label} 
                                 href={link.href} 
-                                className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+                                className={cn(
+                                    "w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300",
+                                    link.colorClass
+                                )}
                                 aria-label={link.label}
                             >
                                 <link.icon className="w-4 h-4" />
@@ -79,7 +85,7 @@ export function Footer() {
                                 Do you like<br />what you see?
                             </h2>
                             
-                            <GooeyCTA />
+                            <GooeyCTA className="mb-6" />
                             
                             <div className="mt-10">
                                 <p className="text-[13px] text-white/50 font-medium tracking-wide">5.0 from 69 reviews</p>
@@ -102,7 +108,7 @@ export function Footer() {
                             <ul className="space-y-3.5">
                                 {['About', 'Culture', 'Testimonials', 'Processes', 'FAQs', 'Branding FAQs', 'Blog'].map(item => (
                                     <li key={item}>
-                                        <Link href="#" className="text-[17px] font-medium text-white hover:text-primary transition-colors">{item}</Link>
+                                        <Link href="#" className={cn("text-[17px] font-medium text-white hover:text-primary transition-colors", ANIMATED_UNDERLINE)}>{item}</Link>
                                     </li>
                                 ))}
                             </ul>
@@ -114,7 +120,7 @@ export function Footer() {
                             <ul className="space-y-3.5">
                                 {['Home', 'Work', 'Services', 'Careers', 'Sectors', 'Hex Test', 'Contact'].map(item => (
                                     <li key={item}>
-                                        <Link href="#" className="flex items-center gap-3 text-[17px] font-medium text-white hover:text-primary transition-colors">
+                                        <Link href="#" className={cn("flex items-center gap-3 text-[17px] font-medium text-white hover:text-primary transition-colors w-fit", ANIMATED_UNDERLINE)}>
                                             {item}
                                             {item === 'Work' && (
                                                 <span className="bg-primary text-primary-foreground text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">New</span>
@@ -129,11 +135,11 @@ export function Footer() {
                         <div className="lg:col-span-3">
                             <h3 className="text-[15px] font-medium text-white/50 mb-6">Get in touch</h3>
                             <div className="space-y-6">
-                                <a href={`tel:${siteConfig.phone?.replace(/\s/g, '') || '01942894596'}`} className="flex items-center gap-4 text-[17px] font-medium text-white hover:text-primary transition-colors group">
+                                <a href={`tel:${siteConfig.phone?.replace(/\s/g, '') || '01942894596'}`} className={cn("flex items-center gap-4 text-[17px] font-medium text-white hover:text-primary transition-colors group w-fit", ANIMATED_UNDERLINE)}>
                                     <Phone className="h-4 w-4 text-white/60 group-hover:text-primary transition-colors" />
                                     {siteConfig.phone || '01942 894 596'}
                                 </a>
-                                <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-4 text-[17px] font-medium text-white hover:text-primary transition-colors group">
+                                <a href={`mailto:${siteConfig.email}`} className={cn("flex items-center gap-4 text-[17px] font-medium text-white hover:text-primary transition-colors group w-fit", ANIMATED_UNDERLINE)}>
                                     <Mail className="h-4 w-4 text-white/60 group-hover:text-primary transition-colors" />
                                     {siteConfig.email || 'hello@rapsora.com'}
                                 </a>
@@ -185,7 +191,7 @@ export function Footer() {
                                 <span className="text-white/20">|</span>
                                 <span>All Rights Reserved</span>
                                 <span className="text-white/20">|</span>
-                                <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy (you really care?)</Link>
+                                <Link href="/privacy" className={cn("hover:text-white transition-colors", ANIMATED_UNDERLINE)}>Privacy Policy (you really care?)</Link>
                             </div>
                         </div>
                         
@@ -195,7 +201,7 @@ export function Footer() {
                             <span className="hidden sm:inline text-white/20">|</span>
                             <span>All Rights Reserved</span>
                             <span className="hidden sm:inline text-white/20">|</span>
-                            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy (you really care?)</Link>
+                            <Link href="/privacy" className={cn("hover:text-white transition-colors", ANIMATED_UNDERLINE)}>Privacy Policy (you really care?)</Link>
                         </div>
                     </div>
 

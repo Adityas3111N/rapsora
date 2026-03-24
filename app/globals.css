@@ -241,6 +241,13 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
+  /* Hide OS cursor on desktop for custom cursor */
+  @media (pointer: fine) and (min-width: 1024px) {
+    * {
+      cursor: none !important;
+    }
+  }
+
   /* Headings use Satoshi (brand typeface) */
   h1,
   h2,
@@ -261,4 +268,19 @@
   .dark ::selection {
     background-color: oklch(0.68 0.22 300 / 28%);
   }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 35s linear infinite;
+  }
+  
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% / 3)); }
 }

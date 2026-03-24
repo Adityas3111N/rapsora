@@ -543,9 +543,9 @@ export function Header() {
                             ? [
                                 'h-[64px]',
                                 'rounded-full',
-                                'bg-white/98 dark:bg-[#1C1D1F]',
-                                'border border-white/40',
-                                'shadow-[0_20px_50px_rgba(0,0,0,0.1)]',
+                                'bg-white/70 dark:bg-[#1C1D1F]/80 backdrop-blur-md',
+                                'border border-white/20 dark:border-white/10',
+                                'shadow-[0_20px_50px_rgba(0,0,0,0.05)]',
                             ]
                             : [
                                 'h-[80px]',
@@ -624,7 +624,7 @@ export function Header() {
 
                             {/* CTA — desktop */}
                             <div className="hidden lg:block lg:scale-[0.85] origin-right ml-2">
-                                <GooeyCTA />
+                                <GooeyCTA className="pt-1" />
                             </div>
 
                             {/* Hamburger — mobile — World Class Animated Toggle */}
