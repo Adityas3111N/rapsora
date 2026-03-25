@@ -1,13 +1,13 @@
 import { BlogHero } from '@/components/sections/blog/blog-hero';
 import { BlogCard } from '@/components/sections/blog/blog-card';
 import { NewsletterCTA } from '@/components/sections/blog/newsletter-cta';
-import { connectToDatabase } from '@/lib/db'; // Will check db imports
+import dbConnect from '@/lib/mongodb';
 import BlogPost from '@/models/BlogPost';
 
 // Temporary mock DB fetcher to populate UI before admin sets up data
 async function getPosts() {
     try {
-        // await connectToDatabase();
+        // await dbConnect();
         // const posts = await BlogPost.find({ status: 'published' }).sort({ createdAt: -1 });
         // if (posts.length > 0) return posts;
         

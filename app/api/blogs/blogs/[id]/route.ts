@@ -2,10 +2,11 @@ import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import BlogPost from '@/models/BlogPost';
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
+export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
         await dbConnect();
-        const blog = await BlogPost.findById(params.id);
+        const { id } = await params;
+        const blog = await BlogPost.findById(id);
         
         if (!blog) {
              return NextResponse.json({ success: false, error: 'Blog not found' }, { status: 404 });
@@ -18,12 +19,13 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
     }
 }
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
+export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
         await dbConnect();
+        const { id } = await params;
         const body = await req.json();
 
-        const updatedBlog = await BlogPost.findByIdAndUpdate(params.id, body, {
+        const updatedBlog = await BlogPost.findByIdAndUpdate(id, body, {
             new: true,
             runValidators: true
         });
@@ -39,10 +41,11 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
     }
 }
 
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
+export async function DELETE(req: Request, { params }: { params: Promise<{ id: string }> }) {
     try {
         await dbConnect();
-        const deletedBlog = await BlogPost.findByIdAndDelete(params.id);
+        const { id } = await params;
+        const deletedBlog = await BlogPost.findByIdAndDelete(id);
         
         if (!deletedBlog) {
             return NextResponse.json({ success: false, error: 'Blog not found' }, { status: 404 });
