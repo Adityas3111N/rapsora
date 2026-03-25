@@ -8,6 +8,7 @@ import { signOut } from 'next-auth/react';
 import {
     LayoutDashboard,
     FileText,
+    Briefcase,
     Users,
     LogOut,
     ChevronRight,
@@ -20,6 +21,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 const sidebarLinks = [
     { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+    { label: 'Works', href: '/admin/works', icon: Briefcase },
     { label: 'Blog Posts', href: '/admin/blogs', icon: FileText },
     { label: 'Users', href: '/admin/users', icon: Users, superAdminOnly: true },
 ];
@@ -176,6 +178,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     <div className="hidden lg:block">
                         <p className="text-white/60 text-[13px] font-medium">
                             {pathname === '/admin' && 'Dashboard Overview'}
+                            {pathname === '/admin/works' && 'Works Management'}
+                            {pathname?.startsWith('/admin/works/new') && 'New Work'}
+                            {pathname?.match(/\/admin\/works\/.*\/edit/) && 'Edit Work'}
                             {pathname === '/admin/blogs' && 'Blog Management'}
                             {pathname?.startsWith('/admin/blogs/new') && 'New Blog Post'}
                             {pathname?.match(/\/admin\/blogs\/.*\/edit/) && 'Edit Blog Post'}
