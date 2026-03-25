@@ -25,7 +25,7 @@ export default async function WorkPage() {
 
     // Extract unique categories and count them
     const catCounts = works.reduce((acc, work) => {
-        work.categories?.forEach(cat => {
+        work.categories?.forEach((cat: string) => {
             acc[cat] = (acc[cat] || 0) + 1;
         });
         return acc;
