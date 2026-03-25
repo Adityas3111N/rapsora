@@ -12,10 +12,13 @@ interface SiteLayoutProps {
 export function SiteLayout({ children }: SiteLayoutProps) {
     const pathname = usePathname();
     const isDiagnostic = pathname?.startsWith('/diagnostic');
+    const isAdmin = pathname?.startsWith('/admin');
+    const isAuth = pathname?.startsWith('/auth');
+    const hideChrome = isDiagnostic || isAdmin || isAuth;
 
     return (
         <div className="flex min-h-screen flex-col">
-            {!isDiagnostic && <Header />}
+            {!hideChrome && <Header />}
             <motion.main
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -24,7 +27,7 @@ export function SiteLayout({ children }: SiteLayoutProps) {
             >
                 {children}
             </motion.main>
-            {!isDiagnostic && <Footer />}
+            {!hideChrome && <Footer />}
         </div>
     );
 }

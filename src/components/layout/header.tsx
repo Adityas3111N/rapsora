@@ -7,7 +7,9 @@ import { AnimatePresence, motion, useReducedMotion, type Variants } from 'framer
 import {
     Moon, Sun, ArrowUpRight, ChevronRight,
     X, Menu, Globe, Palette, ShoppingBag, TrendingUp, Figma, Users, UserCircle, MessageSquare,
+    LogOut, LayoutDashboard,
 } from 'lucide-react';
+import { useSession, signOut } from 'next-auth/react';
 
 import { Logo } from '@/components/layout/logo';
 import { cn } from '@/lib/utils';
@@ -159,7 +161,8 @@ function DesktopDropdown({
     return (
         <div className="relative" onMouseEnter={(e) => { enter(); onMouseEnter(e as any); }} onMouseLeave={leave}>
             {/* ── Trigger ── */}
-            <button
+            <Link
+                href={link.href}
                 aria-expanded={isOpen}
                 aria-haspopup="true"
                 className={cn(
@@ -179,7 +182,7 @@ function DesktopDropdown({
                         {link.count}
                     </span>
                 )}
-            </button>
+            </Link>
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -479,6 +482,102 @@ function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
     );
 }
 
+/* ─────────────────────────────────────────────────────────────
+   USER AUTH BUTTON — Sign In / Avatar dropdown
+───────────────────────────────────────────────────────────── */
+function UserAuthButton() {
+    const { data: session, status } = useSession();
+    const [open, setOpen] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handler = (e: MouseEvent) => {
+            if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+        };
+        document.addEventListener('mousedown', handler);
+        return () => document.removeEventListener('mousedown', handler);
+    }, []);
+
+    if (status === 'loading') {
+        return <div className="h-9 w-9 rounded-full bg-foreground/[0.06] animate-pulse" />;
+    }
+
+    if (!session) {
+        return (
+            <Link
+                href="/auth/signin"
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-bold tracking-tight text-foreground/70 hover:text-foreground hover:bg-foreground/[0.06] transition-all duration-300"
+            >
+                <UserCircle className="w-4 h-4" />
+                Sign In
+            </Link>
+        );
+    }
+
+    const role = (session.user as any)?.role;
+    const isAdmin = role === 'admin' || role === 'superadmin';
+
+    return (
+        <div ref={ref} className="relative">
+            <button
+                onClick={() => setOpen(!open)}
+                className="flex items-center gap-2 rounded-full transition-all duration-300 hover:ring-2 hover:ring-primary/30 active:scale-95"
+            >
+                {session.user?.image ? (
+                    <img
+                        src={session.user.image}
+                        alt={session.user.name || 'User'}
+                        className="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20"
+                    />
+                ) : (
+                    <div className="w-9 h-9 rounded-full bg-primary/15 flex items-center justify-center text-primary text-sm font-bold">
+                        {session.user?.name?.charAt(0) || 'U'}
+                    </div>
+                )}
+            </button>
+
+            <AnimatePresence>
+                {open && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                        transition={{ duration: 0.2, ease: EASE }}
+                        className="absolute right-0 top-full mt-3 w-[220px] rounded-2xl border border-border/40 bg-background shadow-xl dark:bg-[#1C1D1F] overflow-hidden z-[100]"
+                    >
+                        {/* User Info */}
+                        <div className="px-4 py-3 border-b border-border/30">
+                            <p className="text-[13px] font-semibold text-foreground truncate">{session.user?.name}</p>
+                            <p className="text-[11px] text-muted-foreground truncate">{session.user?.email}</p>
+                        </div>
+
+                        {/* Menu Items */}
+                        <div className="py-1.5">
+                            {isAdmin && (
+                                <Link
+                                    href="/admin"
+                                    onClick={() => setOpen(false)}
+                                    className="flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium text-foreground/70 hover:text-foreground hover:bg-foreground/[0.04] transition-colors"
+                                >
+                                    <LayoutDashboard className="w-4 h-4" />
+                                    Dashboard
+                                </Link>
+                            )}
+                            <button
+                                onClick={() => { setOpen(false); signOut({ callbackUrl: '/' }); }}
+                                className="flex items-center gap-3 w-full px-4 py-2.5 text-[13px] font-medium text-foreground/70 hover:text-red-500 hover:bg-red-500/[0.04] transition-colors"
+                            >
+                                <LogOut className="w-4 h-4" />
+                                Sign Out
+                            </button>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+}
+
 /* ═══════════════════════════════════════════════════════════════
    MAIN HEADER — Layout matches MadeByShape exactly:
    [Logo]  [Nav links centered]  [Theme]  [CTA pill+circle]
@@ -619,8 +718,11 @@ export function Header() {
                         </nav>
 
                         {/* ── RIGHT: Controls ──────────────────────── */}
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-3">
                             <ThemeToggle />
+
+                            {/* Auth Button */}
+                            <UserAuthButton />
 
                             {/* CTA — desktop */}
                             <div className="hidden lg:block lg:scale-[0.85] origin-right ml-2">

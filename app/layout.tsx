@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import { SiteLayout } from '@/components/layout/site-layout';
 import { ThemeProvider } from '@/components/shared/theme-provider';
 import { CustomCursor } from '@/components/shared/custom-cursor';
+import { AuthProvider } from '@/components/shared/auth-provider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -76,10 +77,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${satoshi.variable} antialiased`}
       >
-        <ThemeProvider>
-          <CustomCursor />
-          <SiteLayout>{children}</SiteLayout>
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider>
+            <CustomCursor />
+            <SiteLayout>{children}</SiteLayout>
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   );

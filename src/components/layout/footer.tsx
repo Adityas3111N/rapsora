@@ -107,9 +107,9 @@ export function Footer() {
                         <div className="lg:col-span-2">
                             <h3 className="text-[15px] font-medium text-white/50 mb-6">Learn</h3>
                             <ul className="space-y-3.5">
-                                {['About', 'Culture', 'Testimonials', 'Processes', 'FAQs', 'Branding FAQs', 'Blog'].map(item => (
+                                {['About', 'Culture', 'Testimonials', 'Blog'].map(item => (
                                     <li key={item}>
-                                        <Link href="#" className={cn("text-[17px] font-medium text-white hover:text-primary transition-colors", ANIMATED_UNDERLINE)}>{item}</Link>
+                                        <Link href={`/${item.toLowerCase()}`} className={cn("text-[17px] font-medium text-white hover:text-primary transition-colors", ANIMATED_UNDERLINE)}>{item}</Link>
                                     </li>
                                 ))}
                             </ul>
@@ -119,9 +119,9 @@ export function Footer() {
                         <div className="lg:col-span-2">
                             <h3 className="text-[15px] font-medium text-white/50 mb-6">Explore</h3>
                             <ul className="space-y-3.5">
-                                {['Home', 'Work', 'Services', 'Careers', 'Sectors', 'Hex Test', 'Contact'].map(item => (
+                                {['Home', 'Work', 'Services', 'Careers', 'Sectors', 'Contact'].map(item => (
                                     <li key={item}>
-                                        <Link href="#" className={cn("flex items-center gap-3 text-[17px] font-medium text-white hover:text-primary transition-colors w-fit", ANIMATED_UNDERLINE)}>
+                                        <Link href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} className={cn("flex items-center gap-3 text-[17px] font-medium text-white hover:text-primary transition-colors w-fit", ANIMATED_UNDERLINE)}>
                                             {item}
                                             {item === 'Work' && (
                                                 <span className="bg-primary text-primary-foreground text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">New</span>
