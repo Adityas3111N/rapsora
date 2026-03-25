@@ -14,6 +14,7 @@ import {
     ChevronRight,
     Menu,
     X,
+    Mail,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -23,6 +24,7 @@ const sidebarLinks = [
     { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
     { label: 'Works', href: '/admin/works', icon: Briefcase },
     { label: 'Blog Posts', href: '/admin/blogs', icon: FileText },
+    { label: 'Newsletter', href: '/admin/newsletter', icon: Mail },
     { label: 'Users', href: '/admin/users', icon: Users, superAdminOnly: true },
 ];
 
@@ -184,6 +186,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                             {pathname === '/admin/blogs' && 'Blog Management'}
                             {pathname?.startsWith('/admin/blogs/new') && 'New Blog Post'}
                             {pathname?.match(/\/admin\/blogs\/.*\/edit/) && 'Edit Blog Post'}
+                            {pathname === '/admin/newsletter' && 'Newsletter Subscribers'}
                             {pathname === '/admin/users' && 'User Management'}
                         </p>
                     </div>

@@ -291,7 +291,7 @@ function DesktopNavLink({
             {link.label}
             {isActive && (
                 <motion.span
-                    layoutId="nav-pill"
+                    layoutId="nav-active-underline"
                     className="absolute -bottom-0.5 left-0 right-0 h-[1.5px] rounded-full bg-foreground"
                     transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                 />
@@ -677,7 +677,7 @@ export function Header() {
                             <AnimatePresence>
                                 {hoveredRect && (
                                     <motion.div
-                                        layoutId="nav-pill"
+                                        layoutId="nav-hover-pill"
                                         initial={{ opacity: 0 }}
                                         animate={{
                                             opacity: 1,
@@ -736,28 +736,28 @@ export function Header() {
                                 aria-label="Toggle menu"
                             >
                                 <div className="flex flex-col gap-1.5 items-center">
-                                    <motion.span 
-                                        animate={{ 
-                                            rotate: mobileOpen ? 45 : 0, 
+                                    <motion.span
+                                        animate={{
+                                            rotate: mobileOpen ? 45 : 0,
                                             y: mobileOpen ? 7 : 0,
                                             width: mobileOpen ? 20 : 20
                                         }}
-                                        className="w-5 h-[2px] bg-current rounded-full origin-center" 
+                                        className="w-5 h-[2px] bg-current rounded-full origin-center"
                                     />
-                                    <motion.span 
-                                        animate={{ 
+                                    <motion.span
+                                        animate={{
                                             opacity: mobileOpen ? 0 : 1,
                                             x: mobileOpen ? 10 : 0
                                         }}
-                                        className="w-5 h-[2px] bg-current rounded-full" 
+                                        className="w-5 h-[2px] bg-current rounded-full"
                                     />
-                                    <motion.span 
-                                        animate={{ 
-                                            rotate: mobileOpen ? -45 : 0, 
+                                    <motion.span
+                                        animate={{
+                                            rotate: mobileOpen ? -45 : 0,
                                             y: mobileOpen ? -7 : 0,
                                             width: mobileOpen ? 20 : 20
                                         }}
-                                        className="w-5 h-[2px] bg-current rounded-full origin-center" 
+                                        className="w-5 h-[2px] bg-current rounded-full origin-center"
                                     />
                                 </div>
                             </button>
@@ -773,11 +773,11 @@ export function Header() {
                         initial={{ y: 80, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: 80, opacity: 0 }}
-                        transition={{ 
-                            type: 'spring', 
-                            stiffness: 400, 
+                        transition={{
+                            type: 'spring',
+                            stiffness: 400,
                             damping: 38,
-                            delay: 0.8 
+                            delay: 0.8
                         }}
                         className="fixed bottom-6 lg:bottom-8 left-1/2 lg:left-auto lg:right-8 -translate-x-1/2 lg:translate-x-0 z-[60] w-auto max-w-[92%] pointer-events-auto"
                     >
@@ -786,12 +786,12 @@ export function Header() {
                             className="group relative flex items-center gap-4 px-6 py-3 bg-primary rounded-[1.25rem] shadow-[0_15px_40px_rgba(var(--primary-rgb),0.35)] active:scale-95 transition-all duration-300 overflow-hidden border border-white/20"
                         >
                             {/* Cinematic Shimmer Effect */}
-                            <motion.div 
+                            <motion.div
                                 animate={{ x: ['-100%', '200%'] }}
                                 transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1 }}
-                                className="absolute inset-x-0 inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]" 
+                                className="absolute inset-x-0 inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"
                             />
-                            
+
                             <div className="relative flex flex-col items-start mr-1">
                                 <span className="text-[10px] font-extrabold uppercase tracking-widest text-white/50 leading-none mb-1">
                                     THE GROWTH BLUEPRINT
@@ -800,7 +800,7 @@ export function Header() {
                                     Unlock My <span className="text-white underline decoration-white/40 underline-offset-4 font-black italic">5X Revenue</span> Plan.
                                 </p>
                             </div>
-                            
+
                             <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-white backdrop-blur-md border border-white/10 transition-all duration-500 group-hover:bg-white group-hover:text-primary group-hover:rotate-12 group-hover:scale-110">
                                 <ArrowUpRight className="h-5 w-5" strokeWidth={2.5} />
                             </div>

@@ -19,10 +19,10 @@ export function StudioInfo() {
                 {/* Left Column: Info */}
                 <div className="w-full lg:w-[45%] flex flex-col pr-0 lg:pr-8 shrink-0 relative z-10">
                     <h2 className="text-5xl lg:text-[70px] xl:text-[85px] font-heading font-medium tracking-tight text-foreground leading-[1.05] mb-8">
-                        Our Pune<br/>Studio
+                        Our Kanpur<br/>Workspace
                     </h2>
                     <p className="text-[17px] lg:text-[19px] leading-[1.6] text-foreground/80 font-medium max-w-lg mb-12">
-                        Just a short drive from the city centre, our Studio is in a very convenient location, near two tech parks, an expressway, and the eastern transit corridor.
+                        Located right in the heart of the city in Chhuniganj, Kanpur. Our workspace is extremely accessible and just a short 100-meter walk from the nearest metro station.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-12 sm:gap-24 mb-16">
@@ -33,9 +33,9 @@ export function StudioInfo() {
                                 <MapPin className="w-5 h-5 text-foreground/60 shrink-0 mt-0.5" />
                                 <div className="text-[16px] xl:text-[18px] text-foreground font-medium leading-[1.5]">
                                     <p className="font-bold mb-1 tracking-tight">Rapsora Agency</p>
-                                    <p>1 Tech Park Avenue</p>
-                                    <p>Kharadi, Pune</p>
-                                    <p>MH 411014</p>
+                                    <p>Chhuniganj Area</p>
+                                    <p>Kanpur, UP</p>
+                                    <p>100m from Metro</p>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@ export function StudioInfo() {
                                     { name: 'LinkedIn', icon: Linkedin, color: 'hover:bg-[#0077b5] hover:text-white', link: 'https://linkedin.com' },
                                     { name: 'Twitter', icon: Twitter, color: 'hover:bg-black hover:text-white', link: 'https://twitter.com' },
                                     { name: 'Github', icon: Github, color: 'hover:bg-[#333] hover:text-white', link: 'https://github.com' },
-                                    { name: 'Instagram', icon: Instagram, color: 'hover:bg-[#E1306C] hover:text-white', link: 'https://instagram.com' },
+                                    { name: 'Instagram', icon: Instagram, color: 'hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] hover:text-white', link: 'https://instagram.com' },
                                     { name: 'Dribbble', icon: Dribbble, color: 'hover:bg-[#EA4C89] hover:text-white', link: 'https://dribbble.com' }
                                 ].map((social) => (
                                     <Magnetic key={social.name}>
@@ -57,6 +57,7 @@ export function StudioInfo() {
                                             target="_blank" 
                                             rel="noreferrer"
                                             title={social.name}
+                                            data-cursor-ignore
                                             className={`w-11 h-11 rounded-full bg-primary/20 text-primary flex items-center justify-center transition-colors duration-300 ${social.color}`}
                                         >
                                             <social.icon className="w-4 h-4" />
@@ -87,7 +88,7 @@ export function StudioInfo() {
                 {/* Right Column: Image */}
                 <div className="w-full lg:flex-1 h-[400px] lg:h-auto overflow-hidden rounded-[2rem] lg:rounded-[3rem] relative bg-foreground/5">
                     <img 
-                        src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?w=1200&h=1600&fit=crop" 
+                        src="/images/rapsora_workspace.png" 
                         alt="Rapsora Studio Workspace" 
                         className="w-full h-full object-cover origin-center transition-transform hover:scale-105 duration-[1s] ease-[cubic-bezier(0.22,1,0.36,1)]"
                     />
