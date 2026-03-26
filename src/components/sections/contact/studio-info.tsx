@@ -71,7 +71,7 @@ export function StudioInfo() {
                     <div className="mt-auto">
                         <Magnetic>
                             <a 
-                                href="https://maps.google.com" 
+                                href="https://www.google.com/maps/dir/?api=1&destination=Chunni+Ganj+Kanpur" 
                                 target="_blank"
                                 rel="noreferrer"
                                 className="group inline-flex items-center justify-between h-[60px] pl-8 pr-2 w-[220px] rounded-full bg-foreground text-background transition-all duration-300 hover:bg-primary hover:text-primary-foreground"

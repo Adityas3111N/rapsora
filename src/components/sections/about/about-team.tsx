@@ -59,7 +59,7 @@ export function AboutTeam() {
     }, [isDragging, controls]);
 
     return (
-        <section className="w-full py-24 lg:py-40 bg-background overflow-hidden border-t border-black/5 dark:border-white/5">
+        <section id="team" className="w-full py-24 lg:py-40 bg-background overflow-hidden border-t border-black/5 dark:border-white/5">
             <div className="container mx-auto px-6">
                 {/* Minimalist Header */}
                 <div className="flex flex-col items-center text-center mb-16 lg:mb-24">

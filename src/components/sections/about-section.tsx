@@ -120,7 +120,7 @@ export function AboutSection() {
                             {/* Animated Text Link */}
                             <Magnetic strength={0.2}>
                                 <Link 
-                                    href="/team" 
+                                    href="/about#team" 
                                     className={cn("group flex items-center gap-2 text-[15px] lg:text-[16px] font-bold text-foreground transition-colors p-2 -ml-2", ANIMATED_UNDERLINE)}
                                 >
                                     Meet the Team 

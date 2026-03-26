@@ -197,7 +197,7 @@ export function HeroSection() {
                                     </div>
 
                                     <Link
-                                        href="/team"
+                                        href="/about#team"
                                         className="group hidden sm:flex items-center gap-2 text-[16px] font-bold text-foreground transition-colors hover:text-foreground/60"
                                     >
                                         Meet the team

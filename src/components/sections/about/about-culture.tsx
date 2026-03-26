@@ -104,7 +104,7 @@ export function AboutCulture() {
                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop" alt="Founder" />
                                 </div>
                                 <div className="flex flex-col">
-                                    <span className="text-sm font-bold text-foreground">Andy Golpys</span>
+                                    <span className="text-sm font-bold text-foreground">Aashish</span>
                                     <span className="text-[10px] font-black tracking-widest text-primary uppercase">Co-Founder</span>
                                 </div>
                             </div>

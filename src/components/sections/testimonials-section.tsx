@@ -306,7 +306,7 @@ export function TestimonialsSection() {
                     >
                         <Magnetic strength={0.4}>
                             <GooeyCTA
-                                href="/case-studies"
+                                href="/work"
                                 text="All case studies"
                                 pillColorClass="bg-primary"
                                 textColorClass="text-primary-foreground"

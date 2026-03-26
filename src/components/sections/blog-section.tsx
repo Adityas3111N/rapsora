@@ -107,7 +107,7 @@ export function BlogSection() {
                     >
                         <Magnetic strength={0.3}>
                             <GooeyCTA 
-                                href="/insights" 
+                                href="/blog" 
                                 text="View all insights" 
                                 pillColorClass="bg-primary" 
                                 textColorClass="text-primary-foreground"

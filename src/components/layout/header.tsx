@@ -48,10 +48,10 @@ const navLinks = [
         label: 'About',
         href: '/about',
         children: [
-            { label: 'About us', description: 'An award winning agency in Manchester', href: '/about' },
-            { label: 'Meet the Team', description: 'Putting faces to names', href: '/about/team' },
-            { label: 'Culture', description: 'How we do things around here', href: '/about/culture' },
-            { label: 'Testimonials', description: 'What our clients say about us', href: '/about/testimonials' },
+            { label: 'About us', description: 'The story behind the obsession.', href: '/about' },
+            { label: 'Meet the Team', description: 'Putting names to world-class faces.', href: '/about#team' },
+            { label: 'Culture', description: 'Engineering the neural environment.', href: '/about#our-culture' },
+            { label: 'Testimonials', description: 'What our clients say about us.', href: '/testimonials' },
         ],
         viewAll: {
             label: 'Watch our Showreel',

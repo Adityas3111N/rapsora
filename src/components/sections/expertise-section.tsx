@@ -20,7 +20,7 @@ const SERVICES = [
     {
         name: 'Websites',
         description: 'High-converting, blazing-fast websites engineered for growth and built to scale.',
-        href: '/services/websites',
+        href: '/services/web-design',
     },
     {
         name: 'E-Commerce',
@@ -30,7 +30,7 @@ const SERVICES = [
     {
         name: 'UI/UX Design',
         description: 'User-centric interfaces crafted with data-driven design and micro-interactions.',
-        href: '/services/design',
+        href: '/services/ui-ux',
     },
     {
         name: 'SEO & Growth',

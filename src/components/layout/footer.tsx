@@ -107,9 +107,14 @@ export function Footer() {
                         <div className="lg:col-span-2">
                             <h3 className="text-[15px] font-medium text-white/50 mb-6">Learn</h3>
                             <ul className="space-y-3.5">
-                                {['About', 'Culture', 'Testimonials', 'Blog'].map(item => (
-                                    <li key={item}>
-                                        <Link href={`/${item.toLowerCase()}`} className={cn("text-[17px] font-medium text-white hover:text-primary transition-colors", ANIMATED_UNDERLINE)}>{item}</Link>
+                                {[
+                                    { name: 'About', href: '/about' },
+                                    { name: 'Culture', href: '/about#our-culture' },
+                                    { name: 'Testimonials', href: '/testimonials' },
+                                    { name: 'Blog', href: '/blog' }
+                                ].map(item => (
+                                    <li key={item.name}>
+                                        <Link href={item.href} className={cn("text-[17px] font-medium text-white hover:text-primary transition-colors", ANIMATED_UNDERLINE)}>{item.name}</Link>
                                     </li>
                                 ))}
                             </ul>
@@ -119,11 +124,18 @@ export function Footer() {
                         <div className="lg:col-span-2">
                             <h3 className="text-[15px] font-medium text-white/50 mb-6">Explore</h3>
                             <ul className="space-y-3.5">
-                                {['Home', 'Work', 'Services', 'Careers', 'Sectors', 'Contact'].map(item => (
-                                    <li key={item}>
-                                        <Link href={item === 'Home' ? '/' : `/${item.toLowerCase()}`} className={cn("flex items-center gap-3 text-[17px] font-medium text-white hover:text-primary transition-colors w-fit", ANIMATED_UNDERLINE)}>
-                                            {item}
-                                            {item === 'Work' && (
+                                {[
+                                    { name: 'Home', href: '/' },
+                                    { name: 'Work', href: '/work' },
+                                    { name: 'Services', href: '/services' },
+                                    { name: 'Careers', href: '/contact' },
+                                    { name: 'Sectors', href: '/services' },
+                                    { name: 'Contact', href: '/contact' }
+                                ].map(item => (
+                                    <li key={item.name}>
+                                        <Link href={item.href} className={cn("flex items-center gap-3 text-[17px] font-medium text-white hover:text-primary transition-colors w-fit", ANIMATED_UNDERLINE)}>
+                                            {item.name}
+                                            {item.name === 'Work' && (
                                                 <span className="bg-primary text-primary-foreground text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">New</span>
                                             )}
                                         </Link>
@@ -149,9 +161,9 @@ export function Footer() {
                                     <MapPin className="h-4 w-4 text-white/60 shrink-0 mt-1" />
                                     <address className="not-italic text-[17px] font-medium leading-[1.6] text-white/90">
                                         RapSora Studio<br />
-                                        1 Creative Avenue<br />
-                                        Atherton Manchester<br />
-                                        M46 0SU<br />
+                                        Chhuniganj Area<br />
+                                        Kanpur, UP<br />
+                                        India<br />
                                         <span className="text-white/40 text-[15px] mt-2 flex items-center gap-2">
                                             <div className="w-4 h-4 bg-white/30 rounded-sm flex items-center justify-center shrink-0">
                                                 <div className="w-1.5 h-1.5 bg-white/80 rounded-sm" />
@@ -192,7 +204,7 @@ export function Footer() {
                                 <span className="text-white/20">|</span>
                                 <span>All Rights Reserved</span>
                                 <span className="text-white/20">|</span>
-                                <Link href="/privacy" className={cn("hover:text-white transition-colors", ANIMATED_UNDERLINE)}>Privacy Policy (you really care?)</Link>
+                                <Link href="/privacy" className={cn("hover:text-white transition-colors", ANIMATED_UNDERLINE)}>Privacy Policy</Link>
                             </div>
                         </div>
 
@@ -202,7 +214,7 @@ export function Footer() {
                             <span className="hidden sm:inline text-white/20">|</span>
                             <span>All Rights Reserved</span>
                             <span className="hidden sm:inline text-white/20">|</span>
-                            <Link href="/privacy" className={cn("hover:text-white transition-colors", ANIMATED_UNDERLINE)}>Privacy Policy (you really care?)</Link>
+                            <Link href="/privacy" className={cn("hover:text-white transition-colors", ANIMATED_UNDERLINE)}>Privacy Policy</Link>
                         </div>
                     </div>
 
