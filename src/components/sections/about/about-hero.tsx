@@ -52,42 +52,42 @@ export function AboutHero() {
             <div className="container px-4 mx-auto relative z-10">
                 {/* Header Section */}
                 <div className="max-w-4xl mx-auto text-center mb-24">
-                   <motion.div
-                       initial={{ opacity: 0, y: 20 }}
-                       whileInView={{ opacity: 1, y: 0 }}
-                       viewport={{ once: true }}
-                       transition={{ duration: 0.6 }}
-                       className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold tracking-widest uppercase mb-6"
-                   >
-                       <Sparkles className="w-3 h-3" />
-                       THE RAPSORA STORY
-                   </motion.div>
-                   
-                   <motion.h1 
-                       initial={{ opacity: 0, y: 30 }}
-                       whileInView={{ opacity: 1, y: 0 }}
-                       viewport={{ once: true }}
-                       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                       className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.85] text-foreground"
-                   >
-                       Good design <br />
-                       <span className="text-foreground/30 italic">makes life better.</span>
-                   </motion.h1>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold tracking-widest uppercase mb-6"
+                    >
+                        <Sparkles className="w-3 h-3" />
+                        THE RAPSORA STORY
+                    </motion.div>
 
-                   <motion.p
+                    <motion.h1
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                        className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.85] text-foreground"
+                    >
+                        Good design <br />
+                        <span className="text-foreground/30 italic">makes life better.</span>
+                    </motion.h1>
+
+                    <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-                   >
-                       We're a team of world-class hook psychologists, designers, and growth experts obsessed with turning your brand into a revenue machine.
-                   </motion.p>
+                    >
+                        We're a team of world-class hook psychologists, designers, and growth experts obsessed with turning your brand into a revenue machine.
+                    </motion.p>
                 </div>
 
                 {/* Dynamic Image Grid */}
                 <div className="relative max-w-6xl mx-auto mt-20">
-                    <motion.div 
+                    <motion.div
                         style={{ y, rotate }}
                         className="grid grid-cols-2 md:grid-cols-4 gap-4 px-4"
                     >
@@ -97,16 +97,16 @@ export function AboutHero() {
                                 initial={{ opacity: 0, scale: 0.9, y: 40 }}
                                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ 
-                                    duration: 1.2, 
+                                transition={{
+                                    duration: 1.2,
                                     delay: i * 0.15,
                                     ease: [0.22, 1, 0.36, 1]
                                 }}
                                 className="group relative aspect-[3/4] overflow-hidden rounded-[2rem] lg:rounded-[3rem] bg-foreground/[0.05] border border-foreground/[0.08] shadow-2xl dark:shadow-none"
                             >
-                                <img 
-                                    src={img.url} 
-                                    alt={img.label} 
+                                <img
+                                    src={img.url}
+                                    alt={img.label}
                                     className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:rotate-1"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-6 lg:p-8">
@@ -121,9 +121,9 @@ export function AboutHero() {
                     <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 z-20">
                         <Magnetic>
                             <div className="group relative">
-                                <GooeyCTA 
-                                    text="Watch our story" 
-                                    href="#our-culture" 
+                                <GooeyCTA
+                                    text="Watch our story"
+                                    href="#our-culture"
                                     className="scale-110 lg:scale-125"
                                 />
                             </div>
@@ -135,9 +135,9 @@ export function AboutHero() {
             {/* Background elements */}
             <div className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse" />
             <div className="absolute bottom-[20%] right-[-10%] w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] pointer-events-none -z-10" />
-            
+
             {/* Spinning Text Mark */}
-            <motion.div 
+            <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
                 className="absolute top-1/2 right-[-50px] lg:right-12 w-48 h-48 opacity-[0.08] dark:opacity-10 pointer-events-none select-none"
