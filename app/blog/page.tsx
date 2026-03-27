@@ -1,78 +1,31 @@
+import { BLOG_POSTS } from '@/data/blogs';
 import { BlogHero } from '@/components/sections/blog/blog-hero';
 import { BlogCard } from '@/components/sections/blog/blog-card';
 import { NewsletterCTA } from '@/components/sections/blog/newsletter-cta';
-import dbConnect from '@/lib/mongodb';
-import BlogPost from '@/models/BlogPost';
 
-// Temporary mock DB fetcher to populate UI before admin sets up data
-async function getPosts() {
+// Data fetcher with filtering support
+async function getPosts(category?: string) {
     try {
-        // await dbConnect();
-        // const posts = await BlogPost.find({ status: 'published' }).sort({ createdAt: -1 });
-        // if (posts.length > 0) return posts;
-        
         // Fallback mock payload (World-class seed data)
-        return [
-            {
-                _id: '1',
-                title: 'Shape\'s Christmas Party: A Night in Dublin',
-                coverImage: 'https://images.unsplash.com/photo-1543269664-56d56637e6f8?w=800&fit=crop',
-                authorName: 'Aditya Singh',
-                authorImage: '', // Will fallback to AS
-                readTime: '6 min read',
-                category: 'news & culture',
-            },
-            {
-                _id: '2',
-                title: 'Why Every Agency Should Give Their Team Two Weeks Off',
-                coverImage: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&fit=crop',
-                authorName: 'Rohan Sharma',
-                authorImage: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=200&h=200&fit=crop',
-                readTime: '9 min read',
-                category: 'branding',
-            },
-            {
-                _id: '3',
-                title: 'Best Video Editing Automation Tools Every Modern Marketer Needs',
-                coverImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&fit=crop',
-                authorName: 'Sarah Davis',
-                authorImage: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop',
-                readTime: '3 min read',
-                category: 'web development',
-            },
-            {
-                _id: '4',
-                title: 'Best SMS Marketing Platform for Ecommerce',
-                coverImage: 'https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=800&fit=crop',
-                authorName: 'Aditya Singh',
-                authorImage: '',
-                readTime: '7 min read',
-                category: 'archive',
-            },
-            {
-                _id: '5',
-                title: 'The Importance of Data Storage in Digital Marketing Strategies',
-                coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&fit=crop',
-                authorName: 'Alex Morgan',
-                readTime: '6 min read',
-                category: 'web design',
-            },
-            {
-                _id: '6',
-                title: 'Migrating from Webflow to Custom Next.js: The Agency Guide',
-                coverImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&fit=crop',
-                authorName: 'Rohan Sharma',
-                readTime: '16 min read',
-                category: 'web development',
-            }
-        ];
+        let posts = [...BLOG_POSTS].reverse(); // Most recent first
+        
+        if (category && category !== 'explore all') {
+            posts = posts.filter(post => post.category.toLowerCase() === category.toLowerCase());
+        }
+        
+        return posts;
     } catch (e) {
         return [];
     }
 }
 
-export default async function BlogPage() {
-    const posts = await getPosts();
+export default async function BlogPage({ 
+    searchParams 
+}: { 
+    searchParams: Promise<{ category?: string }> 
+}) {
+    const { category } = await searchParams;
+    const posts = await getPosts(category);
     
     // Split for visual rhythm: Top 3 row, then Grid
     const featuredPosts = posts.slice(0, 3);

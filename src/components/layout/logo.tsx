@@ -8,19 +8,15 @@ export function Logo({ className }: { className?: string }) {
         <Link
             href="/"
             aria-label="RapSora — Home"
-            className={cn("group shrink-0 focus-visible:outline-none flex items-center gap-2", className)}
+            className={cn("group shrink-0 focus-visible:outline-none flex items-center", className)}
         >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
-                <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 text-primary" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L4 7V17L12 22L20 17V7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M12 22V12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M12 12L20 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M12 12L4 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+            <div className="relative h-10 w-10 sm:h-12 sm:w-12 transition-transform duration-500 group-hover:scale-105">
+                <img
+                    src="/logo.png"
+                    alt="RapSora"
+                    className="h-full w-full object-contain"
+                />
             </div>
-            <span className="text-xl font-bold tracking-tight text-foreground">
-                RapSora
-            </span>
         </Link>
     );
 }

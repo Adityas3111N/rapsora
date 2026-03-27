@@ -6,6 +6,7 @@ import { Twitter, Linkedin, Instagram, Github, Dribbble } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { siteConfig } from '@/constants/site';
 import { GooeyCTA } from '@/components/shared/gooey-cta';
+import { Logo } from '@/components/layout/logo';
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
@@ -182,14 +183,14 @@ export function Footer() {
                             className="font-heading font-medium tracking-tight text-center text-white mix-blend-plus-lighter opacity-90 pb-8"
                             style={{ fontSize: 'clamp(5rem, 16vw, 20rem)', lineHeight: '0.8' }}
                         >
-                            Crafting since 2024
+                            Obsessed with ROI
                         </h2>
                     </div>
 
                     {/* ── Sub Footer (Single Line on Desktop) ── */}
                     <div className="px-8 lg:px-16 pb-12 flex flex-col xl:flex-row items-start xl:items-center justify-between gap-6 text-[14px] text-white/50 font-medium max-w-7xl mx-auto">
                         <div className="flex items-center gap-6">
-                            <span className="font-heading text-2xl font-bold text-white tracking-tight">RapSora.</span>
+                            <Logo className="scale-[0.85] origin-left" />
                             <span className="hidden xl:inline">© RapSora Ltd {currentYear}</span>
                         </div>
 

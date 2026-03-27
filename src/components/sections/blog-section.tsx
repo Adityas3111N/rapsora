@@ -7,45 +7,9 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Magnetic } from '@/components/shared/magnetic';
 import { GooeyCTA } from '@/components/shared/gooey-cta';
 import { cn } from '@/lib/utils';
+import { BLOG_POSTS } from '@/data/blogs';
+import Link from 'next/link';
 
-/* ─────────────────────────────────────────────────────────────
-   MOCK DATA (Replace with CMS data)
-───────────────────────────────────────────────────────────── */
-const BLOG_POSTS = [
-    {
-        id: 1,
-        title: "Why did Rise at Seven choose RapSora?",
-        excerpt: "It always has a feel good factor when another agency instructs us to engineer their new platform. Here is a teardown of the conversion triggers we used.",
-        readTime: "4 min",
-        image: "/images/blog/blog_cover_1.png",
-        author: {
-            name: "James",
-            avatar: "/images/testimonials/avatar-james.png"
-        }
-    },
-    {
-        id: 2,
-        title: "The psychology behind high-converting systems",
-        excerpt: "In our own words, how important aesthetics, micro-interactions, and psychological friction removal is to our web design process.",
-        readTime: "6 min",
-        image: "/images/blog/blog_cover_2.png",
-        author: {
-            name: "Sarah",
-            avatar: "/images/testimonials/avatar-sarah.png"
-        }
-    },
-    {
-        id: 3,
-        title: "Engineering trust through architectural design",
-        excerpt: "How to mathematically prove your value to enterprise clients before they even scroll down your landing page.",
-        readTime: "3 min",
-        image: "/images/blog/blog_cover_3.png",
-        author: {
-            name: "Hannah",
-            avatar: "/images/testimonials/avatar-hannah.png"
-        }
-    }
-];
 
 export function BlogSection() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -170,32 +134,38 @@ export function BlogSection() {
     );
 }
 
+import { extractInitials } from '@/lib/utils';
+
 /* ─────────────────────────────────────────────────────────────
    BLOG CARD COMPONENT (With Architectural Cutout)
 ───────────────────────────────────────────────────────────── */
 function BlogCard({ post }: { post: typeof BLOG_POSTS[0] }) {
+    const initials = extractInitials(post.authorName || 'Rapsora Editor');
+
     return (
-        <a href="#" className="w-[85vw] sm:w-[450px] lg:w-[500px] shrink-0 snap-center sm:snap-start group relative flex flex-col gap-6 lg:gap-8 focus:outline-none" data-cursor-hover>
+        <Link 
+            href={`/blog/${post.slug}`} 
+            className="w-[85vw] sm:w-[450px] lg:w-[500px] shrink-0 snap-center sm:snap-start group relative flex flex-col gap-6 lg:gap-8 focus:outline-none" 
+            data-cursor-hover
+        >
             
             {/* Image Container with Structural Mask */}
             <div className="relative w-full aspect-[4/3] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden bg-foreground/5 isolation-auto shadow-sm">
-                <Image 
-                    src={post.image} 
+                <img 
+                    src={post.coverImage} 
                     alt={post.title} 
-                    fill 
-                    className="object-cover group-hover:scale-105 transition-transform duration-1000 ease-[0.22,1,0.36,1]" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-[0.22,1,0.36,1]" 
                 />
                 
-                {/* 
-                    THE ARCHITECTURAL CUTOUT
-                    A white box in the bottom-left corner with 2 SVG corner masks
-                    to flawlessly blend it into the image container.
-                */}
                 <div className="absolute bottom-0 left-0 w-20 h-20 lg:w-28 lg:h-28 bg-background rounded-tr-[1.5rem] lg:rounded-tr-[2.5rem] z-10 flex items-end justify-start pb-0 pl-0">
                     
                     {/* Author Avatar Nested Inside */}
-                    <div className="relative w-16 h-16 lg:w-24 lg:h-24 rounded-[1.2rem] lg:rounded-[1.8rem] overflow-hidden bg-foreground/5 shadow-inner">
-                        <Image src={post.author.avatar} alt={post.author.name} fill className="object-cover" />
+                    <div className="relative w-16 h-16 lg:w-24 lg:h-24 rounded-[1.2rem] lg:rounded-[1.8rem] overflow-hidden bg-primary/10 flex items-center justify-center border-4 border-background shadow-inner">
+                        {post.authorImage ? (
+                             <img src={post.authorImage} alt={post.authorName} className="w-full h-full object-cover" />
+                        ) : (
+                             <span className="text-primary font-bold">{initials}</span>
+                        )}
                     </div>
 
                     {/* SVG INVERSE CORNER: Top Left Mask connecting up the image wall */}
@@ -214,7 +184,7 @@ function BlogCard({ post }: { post: typeof BLOG_POSTS[0] }) {
             <div className="flex flex-col gap-3 sm:gap-4 flex-grow px-2">
                 <div className="flex items-center gap-2 text-foreground/50 text-[13px] sm:text-[14px] font-bold uppercase tracking-wider">
                     <div className="w-1.5 h-1.5 rounded-full bg-foreground/30" />
-                    <span>{post.readTime} read</span>
+                    <span>{post.readTime}</span>
                 </div>
                 
                 <h3 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-foreground leading-[1.2] group-hover:text-primary transition-colors line-clamp-2">
@@ -225,6 +195,6 @@ function BlogCard({ post }: { post: typeof BLOG_POSTS[0] }) {
                     {post.excerpt}
                 </p>
             </div>
-        </a>
+        </Link>
     );
 }

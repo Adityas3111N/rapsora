@@ -11,6 +11,7 @@ interface SiteLayoutProps {
 
 export function SiteLayout({ children }: SiteLayoutProps) {
     const pathname = usePathname();
+    const isHome = pathname === '/';
     const isDiagnostic = pathname?.startsWith('/diagnostic');
     const isAdmin = pathname?.startsWith('/admin');
     const isAuth = pathname?.startsWith('/auth');
