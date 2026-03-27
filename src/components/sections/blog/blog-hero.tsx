@@ -1,5 +1,7 @@
 'use client';
 
+import { motion } from 'framer-motion';
+import { cn } from '@/lib/utils';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { BLOG_POSTS } from '@/data/blogs';
 

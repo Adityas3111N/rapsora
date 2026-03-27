@@ -122,7 +122,7 @@ export function BlogSection() {
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     >
                         {BLOG_POSTS.map((post) => (
-                            <BlogCard key={post.id} post={post} />
+                            <BlogCard key={post._id} post={post} />
                         ))}
                         {/* Fake padding block for spacing at the end */}
                         <div className="w-[1px] shrink-0" />
